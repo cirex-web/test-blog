@@ -40,7 +40,7 @@ const getRelativeTime = (timestamp: number) => {
   return "Just Now";
 };
 
-const Site = ({ siteInfo }: { siteInfo: SiteInfo }) => {
+const Site = ({ siteInfo, index }: { siteInfo: SiteInfo; index: number }) => {
   const [readableTime, setReadableTime] = useState("");
   useEffect(() => {
     const intervalId = setInterval(
@@ -50,7 +50,7 @@ const Site = ({ siteInfo }: { siteInfo: SiteInfo }) => {
     return () => clearInterval(intervalId);
   }, [siteInfo.time]);
   return (
-    <div className={css.siteRow}>
+    <div className={css.siteRow} style={{ animationDelay: index * 10 + "ms" }}>
       <div className={css.logo}>
         <img
           src={
@@ -73,23 +73,26 @@ const Site = ({ siteInfo }: { siteInfo: SiteInfo }) => {
 };
 
 export const BrowsingHistory = () => {
-  const [browsingHistory, setBrowsingHistory] = useState<SiteInfo[]>([]);
+  const [browsingHistory, setBrowsingHistory] = useState<React.ReactNode[]>([]);
   useEffect(() => {
     const database = getDatabase(initializeApp(firebaseConfig));
 
     onValue(ref(database, "history"), (snapshot) => {
-      const history = Object.values(snapshot.val()).reverse() as SiteInfo[];
-      const filteredHistory = [];
+      const historyRows: React.ReactNode[] = [];
+      const entries = Object.entries(snapshot.val()).reverse();
       const seenIds = new Set();
-      for (const siteInfo of history) {
+      let index = 0;
+      for (const [randomId, siteInfo] of entries as [string, SiteInfo][]) {
         const id = siteInfo.tabId + siteInfo.url;
         if (!seenIds.has(id)) {
           seenIds.add(id);
-          filteredHistory.push(siteInfo);
-          if (filteredHistory.length > 12) break;
+          historyRows.push(
+            <Site siteInfo={siteInfo} key={randomId} index={index++} />
+          );
+          if (historyRows.length > 12) break;
         }
       }
-      setBrowsingHistory(filteredHistory);
+      setBrowsingHistory(historyRows);
     });
   }, []);
   return (
@@ -98,11 +101,7 @@ export const BrowsingHistory = () => {
         <h2>Check out what I&apos;ve been browsing</h2>
         <h3>Because privacy doesn&apos;t exist anyways</h3>
       </div>
-      <div className={css.siteData}>
-        {browsingHistory.map((site, index) => (
-          <Site siteInfo={site} key={index} />
-        ))}
-      </div>
+      <div className={css.siteData}>{browsingHistory}</div>
     </div>
   );
 };
