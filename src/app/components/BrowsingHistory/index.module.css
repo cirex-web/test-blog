@@ -1,0 +1,33 @@
+.browsingHistory {
+  border-left: 3px solid black;
+  padding: 3rem 2rem;
+  width: 600px;
+  height: 400px;
+}
+
+.siteTitle {
+  font-size: 1.2rem;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  flex-grow: 1;
+}
+.siteMetadata {
+  color: gray;
+  font-size: 1rem;
+  white-space: nowrap;
+}
+.siteRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo {
+  border-radius: 5px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.logo img {
+  display: block;
+}
