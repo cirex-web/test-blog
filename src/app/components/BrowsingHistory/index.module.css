@@ -5,6 +5,7 @@
   height: 457px;
   box-sizing: border-box;
   overflow: hidden;
+  flex-grow: 1;
 }
 .siteData {
   display: flex;
