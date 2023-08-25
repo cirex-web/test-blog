@@ -8,7 +8,7 @@ export default function Home() {
       <div>
         <h2 style={{ fontSize: "50px" }}>Hi!</h2>
         <h1>I&apos;m Eric Xu</h1>
-        <h2>CMU SCS '27</h2>
+        <h2>CMU SCS &apos;27</h2>
       </div>
       <BrowsingHistory />
     </main>
