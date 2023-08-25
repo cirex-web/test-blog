@@ -1,8 +1,11 @@
 .browsingHistory {
   border-left: 3px solid black;
-  padding: 3rem 2rem;
+  padding: 0 2rem;
   width: 600px;
   height: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
 }
 
 .siteTitle {

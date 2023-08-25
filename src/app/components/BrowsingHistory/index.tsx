@@ -86,7 +86,7 @@ export const BrowsingHistory = () => {
         if (!seenIds.has(id)) {
           seenIds.add(id);
           filteredHistory.push(siteInfo);
-          if (filteredHistory.length > 7) break;
+          if (filteredHistory.length > 12) break;
         }
       }
       setBrowsingHistory(filteredHistory);
