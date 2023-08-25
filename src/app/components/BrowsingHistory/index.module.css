@@ -1,8 +1,9 @@
 .browsingHistory {
   border-left: 3px solid black;
   padding: 0 2rem;
-  width: 600px;
-  height: 427px;
+  max-width: min(100%, 846px);
+  height: 457px;
+  box-sizing: border-box;
 }
 .siteData {
   display: flex;
@@ -35,4 +36,14 @@
 }
 .logo img {
   display: block;
+}
+
+@media screen and (max-width: 500px) {
+  .browsingHistory {
+    border: none;
+    padding: 0;
+  }
+  .siteMetadata {
+    display: none;
+  }
 }
