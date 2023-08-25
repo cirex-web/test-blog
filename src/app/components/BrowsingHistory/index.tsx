@@ -94,10 +94,15 @@ export const BrowsingHistory = () => {
   }, []);
   return (
     <div className={css.browsingHistory}>
-      <h2>Check out what I&apos;ve been browsing:</h2>
-      {browsingHistory.map((site, index) => (
-        <Site siteInfo={site} key={index} />
-      ))}
+      <div>
+        <h2>Check out what I&apos;ve been browsing</h2>
+        <h3>Because privacy doesn&apos;t exist anyways</h3>
+      </div>
+      <div className={css.siteData}>
+        {browsingHistory.map((site, index) => (
+          <Site siteInfo={site} key={index} />
+        ))}
+      </div>
     </div>
   );
 };

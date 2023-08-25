@@ -2,12 +2,14 @@
   border-left: 3px solid black;
   padding: 0 2rem;
   width: 600px;
-  height: 400px;
+  height: 427px;
+}
+.siteData {
   display: flex;
   flex-direction: column;
   gap: 2px;
+  margin-top: 10px;
 }
-
 .siteTitle {
   font-size: 1.2rem;
   white-space: nowrap;
