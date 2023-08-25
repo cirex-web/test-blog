@@ -4,6 +4,7 @@
   max-width: min(100%, 846px);
   height: 457px;
   box-sizing: border-box;
+  overflow: hidden;
 }
 .siteData {
   display: flex;
