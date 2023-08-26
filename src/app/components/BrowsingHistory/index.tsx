@@ -51,11 +51,11 @@ const Site = ({ siteInfo, index }: { siteInfo: SiteInfo; index: number }) => {
   const replacementFavicon = `https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://${
     new URL(siteInfo.url).hostname
   }&size=256`;
-  console.log(siteInfo);
   const [readableTime, setReadableTime] = useState("");
   const [imageSrc, setImageSrc] = useState(
     siteInfo.favicon || replacementFavicon
   );
+  console.log(siteInfo, readableTime, imageSrc);
   useEffect(() => {
     const intervalId = setInterval(
       () =>

@@ -1,6 +1,7 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import { Open_Sans, PT_Sans } from "next/font/google";
+import { Analytics } from "@vercel/analytics/react";
 
 const openSans = Open_Sans({
   subsets: ["latin"],
@@ -26,6 +27,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={openSans.variable + " " + ptSans.variable}>
         {children}
+        <Analytics />
       </body>
     </html>
   );
