@@ -2,7 +2,7 @@
   border-left: 3px solid black;
   padding: 0 2rem;
   max-width: min(100%, 846px);
-  height: 500px;
+  min-height: 500px;
   box-sizing: border-box;
   overflow: hidden;
   flex-grow: 1;
@@ -10,7 +10,7 @@
 .siteData {
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 10px;
   margin-top: 20px;
 }
 .siteTitle {
@@ -20,6 +20,9 @@
   overflow: hidden;
   flex-grow: 1;
 }
+.siteTitle:hover {
+  white-space: inherit;
+}
 .siteMetadata {
   color: gray;
   font-size: 1rem;
@@ -27,7 +30,7 @@
 }
 .siteRow {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 10px;
   animation: 0.3s fadein forwards;
   opacity: 0;
@@ -93,6 +96,9 @@
   }
   .siteMetadata {
     display: none;
+  }
+  .siteTitle {
+    white-space: inherit;
   }
 }
 @keyframes fadein {

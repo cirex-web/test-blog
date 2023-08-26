@@ -69,13 +69,13 @@ const Site = ({ siteInfo, index }: { siteInfo: SiteInfo; index: number }) => {
   }, [siteInfo.time]);
 
   return (
-    <div className={css.siteRow} style={{ animationDelay: index * 10 + "ms" }}>
+    <div className={css.siteRow} style={{ animationDelay: index * 50 + "ms" }}>
       <div className={css.logo}>
         <Image
           src={imageSrc}
           alt=""
-          width={20}
-          height={20}
+          width={25}
+          height={25}
           onError={(img) =>
             setImageSrc(
               imageSrc === replacementFavicon
