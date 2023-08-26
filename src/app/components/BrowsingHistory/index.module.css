@@ -41,7 +41,11 @@
 .logo img {
   display: block;
 }
-
+@media screen and (max-width: 1400px) {
+  .browsingHistory {
+    height: auto;
+  }
+}
 @media screen and (max-width: 500px) {
   .browsingHistory {
     border: none;
