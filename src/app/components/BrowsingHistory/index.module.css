@@ -32,7 +32,47 @@
   animation: 0.3s fadein forwards;
   opacity: 0;
 }
-
+.liveBox {
+  padding-left: 1.3rem;
+  font-weight: 400;
+  position: relative;
+}
+.liveBox.active {
+  color: #cf0005;
+}
+.liveBox.notActive {
+  color: gray;
+}
+.liveBox::after {
+  content: "";
+  height: 15px;
+  width: 15px;
+  left: 0;
+  top: 50%;
+  transform: translate(0, -50%);
+  border-radius: 50%;
+  position: absolute;
+}
+.liveBox.active::after {
+  animation: flash 1.5s infinite;
+  background-color: #cf0005;
+}
+.liveBox.notActive::after {
+  outline: 2px solid gray;
+  outline-offset: -2px;
+  border-radius: 50%;
+}
+@keyframes flash {
+  0% {
+    opacity: 1;
+  }
+  30% {
+    opacity: 0.5;
+  }
+  60% {
+    opacity: 1;
+  }
+}
 .logo {
   border-radius: 5px;
   overflow: hidden;

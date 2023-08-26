@@ -7,6 +7,7 @@ import { initializeApp } from "firebase/app";
 import {
   getDatabase,
   limitToLast,
+  off,
   onValue,
   orderByKey,
   query,
@@ -55,7 +56,7 @@ const Site = ({ siteInfo, index }: { siteInfo: SiteInfo; index: number }) => {
   const [imageSrc, setImageSrc] = useState(
     siteInfo.favicon || replacementFavicon
   );
-  console.log(siteInfo, readableTime, imageSrc);
+
   useEffect(() => {
     const intervalId = setInterval(
       () =>
@@ -66,6 +67,7 @@ const Site = ({ siteInfo, index }: { siteInfo: SiteInfo; index: number }) => {
     );
     return () => clearInterval(intervalId);
   }, [siteInfo.time]);
+
   return (
     <div className={css.siteRow} style={{ animationDelay: index * 10 + "ms" }}>
       <div className={css.logo}>
@@ -93,36 +95,52 @@ const Site = ({ siteInfo, index }: { siteInfo: SiteInfo; index: number }) => {
 
 export const BrowsingHistory = () => {
   const [browsingHistory, setBrowsingHistory] = useState<React.ReactNode[]>([]);
+  const [active, setActive] = useState(false);
   useEffect(() => {
     const database = getDatabase(initializeApp(firebaseConfig));
     const recentSitesRef = query(ref(database, "history"), limitToLast(200));
 
-    onValue(recentSitesRef, (snapshot) => {
-      const historyRows: React.ReactNode[] = [];
-      if (!snapshot.exists) return;
-      const seenIds = new Set();
-      let index = 0;
-      const entries = snapshot.val();
-      for (const [randomId, siteInfo] of Object.entries(entries).reverse() as [
-        string,
-        SiteInfo
-      ][]) {
-        const id = siteInfo.tabId + siteInfo.url;
-        if (!seenIds.has(id) && historyRows.length <= 12) {
-          seenIds.add(id);
-          historyRows.push(
-            <Site siteInfo={siteInfo} key={randomId} index={index++} />
-          );
+    const cancelCallback = onValue(
+      recentSitesRef,
+      (snapshot) => {
+        setActive(true);
+        const historyRows: React.ReactNode[] = [];
+        if (!snapshot.exists) return;
+        const seenIds = new Set();
+        let index = 0;
+        const entries = snapshot.val();
+        for (const [randomId, siteInfo] of Object.entries(
+          entries
+        ).reverse() as [string, SiteInfo][]) {
+          const id = siteInfo.tabId + siteInfo.url;
+          if (!seenIds.has(id) && historyRows.length <= 12) {
+            seenIds.add(id);
+            historyRows.push(
+              <Site siteInfo={siteInfo} key={randomId} index={index++} />
+            );
+          }
         }
-      }
 
-      setBrowsingHistory(historyRows);
-    });
+        setBrowsingHistory(historyRows);
+      },
+      (error) => setActive(false)
+    );
+
+    return () => {
+      cancelCallback();
+      setActive(false);
+    };
   }, []);
   return (
     <div className={css.browsingHistory}>
       <div>
+        <h3
+          className={css.liveBox + " " + (active ? css.active : css.notActive)}
+        >
+          {active ? "Live" : "Not Connected"}
+        </h3>
         <h2>Check out what I&apos;ve been browsing</h2>
+
         <h3>Because privacy doesn&apos;t exist anyways</h3>
       </div>
       <div className={css.siteData}>{browsingHistory}</div>
