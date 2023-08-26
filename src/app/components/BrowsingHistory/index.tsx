@@ -4,7 +4,14 @@ import Image from "next/image";
 import css from "./index.module.css";
 
 import { initializeApp } from "firebase/app";
-import { getDatabase, onValue, ref } from "firebase/database";
+import {
+  getDatabase,
+  limitToLast,
+  onValue,
+  orderByKey,
+  query,
+  ref,
+} from "firebase/database";
 import { useEffect, useState } from "react";
 import { time } from "console";
 
@@ -41,27 +48,39 @@ const getRelativeTime = (timestamp: number) => {
 };
 
 const Site = ({ siteInfo, index }: { siteInfo: SiteInfo; index: number }) => {
+  const replacementFavicon = `https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://${
+    new URL(siteInfo.url).hostname
+  }&size=256`;
+  console.log(siteInfo);
   const [readableTime, setReadableTime] = useState("");
+  const [imageSrc, setImageSrc] = useState(
+    siteInfo.favicon || replacementFavicon
+  );
   useEffect(() => {
     const intervalId = setInterval(
-      () => setReadableTime(getRelativeTime(siteInfo.time)),
-      100
+      () =>
+        setReadableTime(
+          getRelativeTime(Math.floor(siteInfo.time / 1000) * 1000)
+        ),
+      50
     );
     return () => clearInterval(intervalId);
   }, [siteInfo.time]);
   return (
     <div className={css.siteRow} style={{ animationDelay: index * 10 + "ms" }}>
       <div className={css.logo}>
-        <img
-          src={
-            siteInfo.favicon ??
-            `https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://${
-              new URL(siteInfo.url).hostname
-            }&size=256`
-          }
+        <Image
+          src={imageSrc}
           alt=""
           width={20}
           height={20}
+          onError={(img) =>
+            setImageSrc(
+              imageSrc === replacementFavicon
+                ? "/default-favicon.png"
+                : replacementFavicon
+            )
+          }
         />
       </div>
       <span className={css.siteTitle}>
@@ -76,22 +95,27 @@ export const BrowsingHistory = () => {
   const [browsingHistory, setBrowsingHistory] = useState<React.ReactNode[]>([]);
   useEffect(() => {
     const database = getDatabase(initializeApp(firebaseConfig));
+    const recentSitesRef = query(ref(database, "history"), limitToLast(200));
 
-    onValue(ref(database, "history"), (snapshot) => {
+    onValue(recentSitesRef, (snapshot) => {
       const historyRows: React.ReactNode[] = [];
-      const entries = Object.entries(snapshot.val()).reverse();
+      if (!snapshot.exists) return;
       const seenIds = new Set();
       let index = 0;
-      for (const [randomId, siteInfo] of entries as [string, SiteInfo][]) {
+      const entries = snapshot.val();
+      for (const [randomId, siteInfo] of Object.entries(entries).reverse() as [
+        string,
+        SiteInfo
+      ][]) {
         const id = siteInfo.tabId + siteInfo.url;
-        if (!seenIds.has(id)) {
+        if (!seenIds.has(id) && historyRows.length <= 12) {
           seenIds.add(id);
           historyRows.push(
             <Site siteInfo={siteInfo} key={randomId} index={index++} />
           );
-          if (historyRows.length > 12) break;
         }
       }
+
       setBrowsingHistory(historyRows);
     });
   }, []);
