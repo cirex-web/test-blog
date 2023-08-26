@@ -54,7 +54,7 @@
   position: absolute;
 }
 .liveBox.active::after {
-  animation: flash 1.5s infinite;
+  animation: flash 1.8s infinite;
   background-color: #cf0005;
 }
 .liveBox.notActive::after {
@@ -67,7 +67,7 @@
     opacity: 1;
   }
   30% {
-    opacity: 0.5;
+    opacity: 0.2;
   }
   60% {
     opacity: 1;
