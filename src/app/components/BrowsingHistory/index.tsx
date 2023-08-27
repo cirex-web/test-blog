@@ -145,7 +145,7 @@ const SiteGroup = ({
       >
         <Image src="/right-arrow.svg" alt="" height={30} width={30} />
       </div>
-      <div style={{ flexGrow: 1 }}>
+      <div style={{ flexGrow: 1, overflow: "hidden" }}>
         <Site
           siteInfo={sites[0]}
           index={index}
