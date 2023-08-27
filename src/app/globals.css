@@ -1,15 +1,27 @@
 :root {
   --max-width: 1100px;
   --border-radius: 12px;
+  --background-color: #9bc1bc;
 }
-
+::-webkit-scrollbar {
+  width: 30px;
+  padding: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--background-color);
+}
+::-webkit-scrollbar-thumb {
+  background: #999;
+  /* border-radius: 10px; */
+  border-left: 17px solid var(--background-color);
+}
 html,
 body {
   max-width: 100vw;
 }
 
 body {
-  background-color: #9bc1bc;
+  background-color: var(--background-color);
   margin: 0;
   font-family: var(--font-pt-sans);
 }
