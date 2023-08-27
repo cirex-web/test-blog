@@ -4,6 +4,7 @@
   max-width: min(100%, 846px);
   box-sizing: border-box;
   flex-grow: 1;
+  overflow: hidden;
 }
 .browsingHistoryHeader {
   background-color: var(--background-color);
