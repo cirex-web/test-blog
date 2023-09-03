@@ -13,8 +13,9 @@ import {
   query,
   ref,
 } from "firebase/database";
-import { memo, useEffect, useState } from "react";
+import { memo, useEffect, useRef, useState } from "react";
 import { time } from "console";
+import { Transition } from "react-transition-group";
 
 const firebaseConfig = {
   apiKey: "AIzaSyAuCdQRwLUxIeYFIM7MDXvEBKMR1vWScSc",
@@ -45,6 +46,7 @@ const processEntries = (
   history.reverse();
   for (const [randomId, siteInfo] of history) {
     const id = siteInfo.tabId + siteInfo.url + siteInfo.title;
+    if (new URL(siteInfo.url).host === "workona.com") continue; //this is just tab-manager stuff
     if (!seenIds.has(id)) {
       seenIds.add(id);
       historyRows.set(siteInfo.url, [
@@ -84,6 +86,9 @@ const Site = ({
   const [imageSrc, setImageSrc] = useState(
     siteInfo.favicon || replacementFavicon
   );
+
+  const itemRef = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
     const intervalId = setInterval(
       () =>
@@ -96,30 +101,42 @@ const Site = ({
   }, [siteInfo.time]);
 
   return (
-    <div className={css.siteRow} style={{ animationDelay: index * 50 + "ms" }}>
-      <div
-        className={css.logo}
-        style={{ visibility: showFavicon ? "inherit" : "hidden" }}
-      >
-        <Image
-          src={imageSrc}
-          alt=""
-          width={25}
-          height={25}
-          onError={(img) =>
-            setImageSrc(
-              imageSrc === replacementFavicon
-                ? "/default-favicon.png"
-                : replacementFavicon
-            )
-          }
-        />
-      </div>
-      <span className={css.siteTitle}>
-        <a href={siteInfo.url}>{siteInfo.title}</a>
-      </span>
-      <span className={css.siteMetadata}>{readableTime}</span>
-    </div>
+    <Transition
+      nodeRef={itemRef}
+      in={true}
+      timeout={index * 50 + 10}
+      appear={true}
+    >
+      {(state) => (
+        <div
+          className={css.siteRow + " " + (state === "entered" && css.shown)}
+          ref={itemRef}
+        >
+          <div
+            className={css.logo}
+            style={{ visibility: showFavicon ? "inherit" : "hidden" }}
+          >
+            <Image
+              src={imageSrc}
+              alt=""
+              width={25}
+              height={25}
+              onError={(img) =>
+                setImageSrc(
+                  imageSrc === replacementFavicon
+                    ? "/default-favicon.png"
+                    : replacementFavicon
+                )
+              }
+            />
+          </div>
+          <span className={css.siteTitle}>
+            <a href={siteInfo.url}>{siteInfo.title}</a>
+          </span>
+          <span className={css.siteMetadata}>{readableTime}</span>
+        </div>
+      )}
+    </Transition>
   );
 };
 const SiteGroup = ({
@@ -129,22 +146,34 @@ const SiteGroup = ({
   sites: InternalSiteInfo[];
   index: number;
 }) => {
-  console.log("rerender of", sites[0].url);
   const moreThanOne = sites.length > 1;
   const [open, setOpen] = useState(false);
+  const iconRef = useRef<HTMLDivElement>(null);
   return (
     <div className={css.siteGroup}>
-      <div
-        onClick={() => setOpen(!open)}
-        style={{
-          transform: `rotate(${open ? "90deg" : 0})`,
-          visibility: moreThanOne ? "visible" : "hidden",
-          pointerEvents: moreThanOne ? "all" : "none",
-          cursor: "pointer",
-        }}
+      <Transition
+        in={true}
+        appear={true}
+        nodeRef={iconRef}
+        timeout={index * 50 + 10}
       >
-        <Image src="/right-arrow.svg" alt="" height={30} width={30} />
-      </div>
+        {(state) => (
+          <div
+            onClick={() => setOpen(!open)}
+            className={
+              css.siteGroupArrow + " " + (state === "entered" && css.shown)
+            }
+            style={{
+              transform: `rotate(${open ? "90deg" : 0})`,
+              visibility: moreThanOne ? "visible" : "hidden",
+              pointerEvents: moreThanOne ? "all" : "none",
+            }}
+            ref={iconRef}
+          >
+            <Image src="/right-arrow.svg" alt="" height={30} width={30} />
+          </div>
+        )}
+      </Transition>
       <div style={{ flexGrow: 1, overflow: "hidden" }}>
         <Site
           siteInfo={sites[0]}
