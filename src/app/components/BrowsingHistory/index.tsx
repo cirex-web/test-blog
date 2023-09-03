@@ -104,7 +104,7 @@ const Site = ({
     <Transition
       nodeRef={itemRef}
       in={true}
-      timeout={index * 50 + 10}
+      timeout={(index + 1) * 50}
       appear={true}
     >
       {(state) => (
@@ -155,7 +155,7 @@ const SiteGroup = ({
         in={true}
         appear={true}
         nodeRef={iconRef}
-        timeout={index * 50 + 10}
+        timeout={(index + 1) * 50}
       >
         {(state) => (
           <div
