@@ -24,6 +24,10 @@ body {
   background-color: var(--background-color);
   margin: 0;
   font-family: var(--font-pt-sans);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
 h1 {

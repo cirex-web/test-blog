@@ -1,7 +1,7 @@
 .browsingHistory {
   border-left: 3px solid black;
   padding: 0 2rem;
-  max-width: min(100%, 846px);
+  max-width: 100%;
   box-sizing: border-box;
   flex-grow: 1;
   overflow: hidden;
@@ -19,6 +19,10 @@
   opacity: 0;
   transform: translate(-10px, 0);
   cursor: pointer;
+  padding: 2.5px 0;
+}
+.siteGroupArrow img {
+  display: block;
 }
 .siteGroupArrow.shown {
   opacity: 1;
@@ -88,7 +92,7 @@
   position: absolute;
 }
 .liveBox.active::after {
-  animation: flash 1.8s infinite;
+  animation: flash 1.4s infinite;
   background-color: #cf0005;
 }
 .liveBox.notActive::after {
@@ -101,9 +105,12 @@
     opacity: 1;
   }
   30% {
+    opacity: 1;
+  }
+  50% {
     opacity: 0.2;
   }
-  60% {
+  80% {
     opacity: 1;
   }
 }
