@@ -16,7 +16,7 @@
   display: flex;
   flex-direction: column;
   gap: 15px;
-  width: 500px;
+  max-width: 500px;
 }
 .title * {
   animation: 0.5s fadein forwards;
