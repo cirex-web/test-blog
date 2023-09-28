@@ -1,0 +1,12 @@
+.titlePic {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-grow: 1;
+  border: 2px solid black;
+}
+.titlePicSubtitle {
+  color: rgb(69, 63, 63);
+  text-align: center;
+}

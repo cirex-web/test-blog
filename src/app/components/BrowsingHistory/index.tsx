@@ -7,9 +7,7 @@ import { initializeApp } from "firebase/app";
 import {
   getDatabase,
   limitToLast,
-  off,
   onValue,
-  orderByKey,
   query,
   ref,
 } from "firebase/database";
