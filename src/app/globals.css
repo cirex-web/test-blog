@@ -44,7 +44,23 @@ h2 {
 }
 h3 {
   margin: 5px 0;
+  font-size: 1rem;
 }
 a {
   text-decoration: none;
+}
+@media screen and (max-width: 1400px) {
+  body {
+    display: block; /* No more centering needed */
+    padding: 30px;
+    width: 100%;
+    height: auto;
+    box-sizing: border-box;
+    scrollbar-gutter: stable;
+  }
+}
+@media screen and (max-width: 500px) {
+  body {
+    padding: 30px 15px;
+  }
 }

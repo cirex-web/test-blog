@@ -41,10 +41,10 @@
 @media screen and (max-width: 1400px) {
   .main {
     flex-direction: column;
-    margin-top: 30px;
+    margin: 0;
     align-items: flex-start;
     height: auto;
-    width: 90%;
+    width: 100%;
   }
 }
 @media screen and (max-width: 500px) {

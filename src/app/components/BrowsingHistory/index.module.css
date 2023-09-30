@@ -15,7 +15,7 @@
 .siteGroup {
   display: flex;
   align-items: flex-start;
-  gap: 4px;
+  gap: 4px; /* Gap btw arrow and favicon */
 }
 .siteGroupData {
   flex-grow: 1;
@@ -41,7 +41,7 @@
   overflow-x: hidden;
   scrollbar-color: inherit var(--background-color);
   flex-grow: 1;
-  gap: 10px;
+  gap: 7px;
 }
 .siteTitle {
   font-size: 1.2rem;
@@ -59,16 +59,18 @@
 }
 .siteRow {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 10px;
   opacity: 0;
   transform: translate(10px, 0);
   transition: 0.3s all;
   min-height: 30px;
+  margin-bottom: 1px;
 }
 
 .siteRow:hover .siteTitle {
   white-space: inherit;
+  text-decoration: underline;
 }
 
 .siteRow.shown {

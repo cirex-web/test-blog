@@ -129,9 +129,9 @@ const Site = ({
               }
             />
           </div>
-          <span className={css.siteTitle}>
-            <a href={siteInfo.url}>{siteInfo.title}</a>
-          </span>
+          <a href={siteInfo.url} className={css.siteTitle}>
+            {siteInfo.title}
+          </a>
           <span className={css.siteMetadata}>{readableTime}</span>
         </div>
       )}

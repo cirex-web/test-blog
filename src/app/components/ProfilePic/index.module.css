@@ -1,6 +1,6 @@
 .titlePic {
-  width: 130px;
-  height: 130px;
+  width: 150px;
+  height: 150px;
   border-radius: 50%;
   object-fit: cover;
   flex-grow: 1;
@@ -10,5 +10,4 @@
 .titlePicSubtitle {
   color: rgb(69, 63, 63);
   text-align: center;
-  font-size: smaller;
 }
