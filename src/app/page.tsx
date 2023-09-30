@@ -14,7 +14,6 @@ export default async function Home() {
         .slice(0, Math.max(0, fileName.length - 4))
         .replace(" at ", " ");
       if (isNaN(Date.parse(date))) {
-        console.log(date);
         return undefined;
       }
       return {

@@ -29,7 +29,6 @@ function getMostRecentImage(imageDates: picture[]) {
 }
 
 export const ProfilePic = ({ pictures }: { pictures: picture[] }) => {
-  console.log(pictures);
   const [currentImage, setCurrentImage] = useState<picture>();
   useLayoutEffect(
     () => setCurrentImage(getMostRecentImage(pictures)),
