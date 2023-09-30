@@ -15,13 +15,16 @@
 .siteGroup {
   display: flex;
   align-items: flex-start;
+  gap: 4px;
+}
+.siteGroupData {
+  flex-grow: 1;
 }
 .siteGroupArrow {
   transition: 0.3s all;
   opacity: 0;
   transform: translate(-10px, 0);
   cursor: pointer;
-  padding: 2.5px 0;
 }
 .siteGroupArrow img {
   display: block;
@@ -37,6 +40,8 @@
   overflow-y: scroll;
   overflow-x: hidden;
   scrollbar-color: inherit var(--background-color);
+  flex-grow: 1;
+  gap: 10px;
 }
 .siteTitle {
   font-size: 1.2rem;
@@ -54,12 +59,12 @@
 }
 .siteRow {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 10px;
   opacity: 0;
   transform: translate(10px, 0);
-  padding: 5px 0;
   transition: 0.3s all;
+  min-height: 30px;
 }
 
 .siteRow:hover .siteTitle {
@@ -119,6 +124,7 @@
   border-radius: 5px;
   overflow: hidden;
   flex-shrink: 0;
+  align-self: flex-start;
 }
 .logo img {
   display: block;

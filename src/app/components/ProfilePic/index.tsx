@@ -49,15 +49,16 @@ export const ProfilePic = ({ pictures }: { pictures: string[] }) => {
         width={500}
         height={500}
       />
-      {currentImageDate && (
-        <h3 className={styles.titlePicSubtitle}>
-          Taken at{" "}
-          {new Date(currentImageDate).toLocaleTimeString("en-US", {
+
+      <h3 className={styles.titlePicSubtitle}>
+        {currentImageDate
+          ? `Taken at
+          ${new Date(currentImageDate).toLocaleTimeString("en-US", {
             hour: "2-digit",
             minute: "2-digit",
-          })}
-        </h3>
-      )}
+          })}`
+          : "Loading most recent..."}
+      </h3>
     </div>
   );
 };

@@ -14,6 +14,7 @@ import {
 import { memo, useEffect, useRef, useState } from "react";
 import { time } from "console";
 import { Transition } from "react-transition-group";
+import { Collapse } from "../Collapse";
 
 const firebaseConfig = {
   apiKey: "AIzaSyAuCdQRwLUxIeYFIM7MDXvEBKMR1vWScSc",
@@ -117,8 +118,8 @@ const Site = ({
             <Image
               src={imageSrc}
               alt=""
-              width={25}
-              height={25}
+              width={30}
+              height={30}
               onError={(img) =>
                 setImageSrc(
                   imageSrc === replacementFavicon
@@ -147,6 +148,8 @@ const SiteGroup = ({
   const moreThanOne = sites.length > 1;
   const [open, setOpen] = useState(false);
   const iconRef = useRef<HTMLDivElement>(null);
+  if (!sites.length) return;
+
   return (
     <div className={css.siteGroup}>
       <Transition
@@ -168,7 +171,7 @@ const SiteGroup = ({
             }}
             ref={iconRef}
           >
-            <Image src="/right-arrow.svg" alt="" height={30} width={30} />
+            <Image src="/right-arrow.svg" alt="" height={25} width={25} />
           </div>
         )}
       </Transition>
@@ -179,7 +182,7 @@ const SiteGroup = ({
           showFavicon={true}
           key={sites[0].randomId}
         />
-        <div style={{ display: open ? "block" : "none" }}>
+        <Collapse open={open} className={css.siteGroupData}>
           {sites.slice(1).map((site, _index) => (
             <Site
               siteInfo={site}
@@ -188,7 +191,7 @@ const SiteGroup = ({
               key={site.randomId}
             />
           ))}
-        </div>
+        </Collapse>
       </div>
     </div>
   );

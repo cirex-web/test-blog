@@ -1,13 +1,12 @@
 .main {
   display: flex;
   align-items: stretch;
-  padding: 6rem 6rem 6rem 10%;
   margin: auto;
   max-width: 1650px;
   box-sizing: border-box;
-  height: 800px;
+  height: 70%;
   gap: 50px;
-  width: 100%;
+  width: 81%;
   overflow: hidden;
 }
 .title {
@@ -42,15 +41,13 @@
 @media screen and (max-width: 1400px) {
   .main {
     flex-direction: column;
+    margin-top: 30px;
     align-items: flex-start;
-    padding: 4rem;
     height: auto;
+    width: 90%;
   }
 }
 @media screen and (max-width: 500px) {
-  .main {
-    padding: 2rem;
-  }
   .title {
     flex-direction: column;
     align-items: flex-start;
