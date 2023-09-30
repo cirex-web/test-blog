@@ -3,15 +3,17 @@
 import { useEffect, useLayoutEffect, useState } from "react";
 import Image from "next/image";
 import styles from "./index.module.css";
-
-function getMostRecentImage(imageDates: string[]) {
+export interface picture {
+  date: Date;
+  file: string;
+}
+function getMostRecentImage(imageDates: picture[]) {
   const curTime = [new Date().getHours(), new Date().getMinutes()];
-  console.log(imageDates);
   let lo = 0,
     hi = imageDates.length;
   while (lo < hi) {
     const mid = Math.floor((lo + hi) / 2);
-    const imageDate = new Date(imageDates[mid]);
+    const imageDate = imageDates[mid].date;
     const imageTime = [imageDate.getHours(), imageDate.getMinutes()];
     if (
       imageTime[0] < curTime[0] ||
@@ -26,24 +28,23 @@ function getMostRecentImage(imageDates: string[]) {
   return imageDates[lo === 0 ? imageDates.length - 1 : lo - 1];
 }
 
-export const ProfilePic = ({ pictures }: { pictures: string[] }) => {
-  const [currentImageDate, setCurrentImageDate] = useState<string>();
+export const ProfilePic = ({ pictures }: { pictures: picture[] }) => {
+  console.log(pictures);
+  const [currentImage, setCurrentImage] = useState<picture>();
   useLayoutEffect(
-    () => setCurrentImageDate(getMostRecentImage(pictures)),
+    () => setCurrentImage(getMostRecentImage(pictures)),
     [pictures]
   );
   useEffect(() => {
     const intervalId = setInterval(() => {
-      setCurrentImageDate(getMostRecentImage(pictures));
+      setCurrentImage(getMostRecentImage(pictures));
     }, 10000);
     return () => clearInterval(intervalId);
   }, [pictures]);
   return (
     <div>
       <Image
-        src={
-          "/pfp/" + (currentImageDate ? currentImageDate + ".png" : "blank.png")
-        }
+        src={"/pfp/" + (currentImage ? currentImage.file : "blank.png")}
         alt=""
         className={styles.titlePic}
         width={500}
@@ -51,9 +52,9 @@ export const ProfilePic = ({ pictures }: { pictures: string[] }) => {
       />
 
       <h3 className={styles.titlePicSubtitle}>
-        {currentImageDate
+        {currentImage
           ? `Taken at
-          ${new Date(currentImageDate).toLocaleTimeString("en-US", {
+          ${currentImage.date.toLocaleTimeString("en-US", {
             hour: "2-digit",
             minute: "2-digit",
           })}`

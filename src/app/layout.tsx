@@ -15,7 +15,7 @@ const ptSans = PT_Sans({
 
 export const metadata: Metadata = {
   title: "Eric (cirex)",
-  description: "The personal online home of Eric",
+  description: "The online home of Eric Xu",
 };
 
 export default function RootLayout({
