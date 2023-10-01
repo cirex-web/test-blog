@@ -44,7 +44,6 @@
   gap: 7px;
 }
 .siteTitle {
-  font-size: 1.2rem;
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow-wrap: anywhere;
@@ -53,9 +52,7 @@
 }
 
 .siteMetadata {
-  color: gray;
-  font-size: 1rem;
-  white-space: nowrap;
+  flex-shrink: 0;
 }
 .siteRow {
   display: flex;
@@ -70,7 +67,6 @@
 
 .siteRow:hover .siteTitle {
   white-space: inherit;
-  text-decoration: underline;
 }
 
 .siteRow.shown {

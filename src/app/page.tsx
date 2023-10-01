@@ -3,6 +3,7 @@ import { BrowsingHistory } from "./components/BrowsingHistory";
 import { ProfilePic, picture } from "./components/ProfilePic";
 import { promises as fs } from "fs";
 import path from "path";
+import { BlogPanel } from "./components/BlogPanel";
 
 const MS_PER_DAY = 1000 * 60 * 60 * 24;
 
@@ -31,14 +32,17 @@ export default async function Home() {
     );
   return (
     <main className={styles.main}>
-      <div className={styles.title}>
-        <ProfilePic pictures={pictures} />
+      <div className={styles.leftPanel}>
+        <div className={styles.title}>
+          <ProfilePic pictures={pictures} />
 
-        <div>
-          <h2 style={{ fontSize: "50px" }}>Hi! I&apos;m</h2>
-          <h1>Eric Xu</h1>
-          <h2>CMU SCS &apos;27</h2>
+          <div>
+            <h2 style={{ fontSize: "50px" }}>Hi! I&apos;m</h2>
+            <h1>Eric Xu</h1>
+            <h2>CMU SCS &apos;27</h2>
+          </div>
         </div>
+        <BlogPanel />
       </div>
       <BrowsingHistory />
     </main>

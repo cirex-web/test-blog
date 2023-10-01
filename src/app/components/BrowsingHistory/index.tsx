@@ -128,10 +128,10 @@ const Site = ({
               }
             />
           </div>
-          <a href={siteInfo.url} className={css.siteTitle}>
-            {siteInfo.title}
-          </a>
-          <span className={css.siteMetadata}>{readableTime}</span>
+          <h3 className={css.siteTitle}>
+            <a href={siteInfo.url}>{siteInfo.title}</a>
+          </h3>
+          <small className={css.siteMetadata}>{readableTime}</small>
         </div>
       )}
     </Transition>
@@ -200,7 +200,7 @@ export const BrowsingHistory = () => {
   const [browsingHistory, setBrowsingHistory] = useState<InternalSiteInfo[][]>(
     []
   );
-  console.log(browsingHistory);
+  // console.log(browsingHistory);
   const [active, setActive] = useState(false);
   useEffect(() => {
     const database = getDatabase(initializeApp(firebaseConfig));

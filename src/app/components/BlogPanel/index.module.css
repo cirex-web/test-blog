@@ -1,0 +1,12 @@
+.panel {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.blogEntry {
+  margin-bottom: 5px;
+}
+.blogList {
+  overflow-y: scroll;
+}

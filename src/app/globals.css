@@ -43,11 +43,19 @@ h2 {
   line-height: 1;
 }
 h3 {
-  margin: 5px 0;
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+small {
+  color: gray;
   font-size: 1rem;
 }
 a {
   text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
 }
 @media screen and (max-width: 1400px) {
   body {

@@ -1,0 +1,12 @@
+.container {
+  font-size: 1.3rem;
+  width: 70%;
+  height: 600px;
+  overflow-y: scroll;
+}
+@media screen and (max-width: 1400px) {
+  .container {
+    height: auto;
+    width: 100%;
+  }
+}

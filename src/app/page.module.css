@@ -10,10 +10,9 @@
   overflow: hidden;
 }
 .title {
-  flex-shrink: 0;
   display: flex;
   gap: 25px;
-  max-width: 700px;
+  flex-shrink: 0;
 }
 .title * {
   animation: 0.5s fadein forwards;
@@ -28,7 +27,12 @@
 .title :nth-child(4) {
   animation-delay: 300ms;
 }
-
+.leftPanel {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  flex-shrink: 0;
+}
 @keyframes fadein {
   from {
     transform: translate(0, 20px);
