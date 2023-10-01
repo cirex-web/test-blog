@@ -45,6 +45,7 @@ export const ProfilePic = ({ pictures }: { pictures: picture[] }) => {
         className={styles.titlePic}
         width={500}
         height={500}
+        priority={true}
       />
 
       <h3 className={styles.titlePicSubtitle}>

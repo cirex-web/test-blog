@@ -201,10 +201,11 @@ export const BrowsingHistory = () => {
   const [browsingHistory, setBrowsingHistory] = useState<InternalSiteInfo[][]>(
     []
   );
+  console.log(browsingHistory);
   const [active, setActive] = useState(false);
   useEffect(() => {
     const database = getDatabase(initializeApp(firebaseConfig));
-    const recentSitesRef = query(ref(database, "history"), limitToLast(1000));
+    const recentSitesRef = query(ref(database, "history"), limitToLast(400));
 
     const cancelCallback = onValue(
       recentSitesRef,
