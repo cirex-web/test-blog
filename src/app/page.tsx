@@ -19,15 +19,15 @@ export default async function Home() {
       }
       return {
         file: fileName,
-        date: new Date(date),
+        date: date,
       };
     })
     .filter((image): image is picture => !!image)
     .sort(
       (a, b) =>
-        a.date.getHours() * 60 +
-        a.date.getMinutes() -
-        (b.date.getHours() * 60 + b.date.getMinutes())
+        new Date(a.date).getHours() * 60 +
+        new Date(a.date).getMinutes() -
+        (new Date(b.date).getHours() * 60 + new Date(b.date).getMinutes())
     );
   return (
     <main className={styles.main}>
