@@ -210,8 +210,8 @@ export const BrowsingHistory = () => {
       recentSitesRef,
       (snapshot) => {
         if (!snapshot.exists) return;
-        setActive(true);
         setBrowsingHistory(processEntries(Object.entries(snapshot.val())));
+        setActive(true);
       },
       (error) => setActive(false)
     );
