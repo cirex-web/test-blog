@@ -45,7 +45,6 @@ const processEntries = (
   history.reverse();
   for (const [randomId, siteInfo] of history) {
     const id = siteInfo.tabId + siteInfo.url + siteInfo.title;
-    if (new URL(siteInfo.url).host === "workona.com") continue; //this is just tab-manager stuff
     if (!seenIds.has(id)) {
       seenIds.add(id);
       historyRows.set(siteInfo.url, [
