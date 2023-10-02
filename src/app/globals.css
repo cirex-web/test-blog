@@ -45,11 +45,15 @@ h2 {
 h3 {
   margin: 0;
   font-size: 1.2rem;
+  font-weight: bold;
 }
 
 small {
   color: gray;
   font-size: 1rem;
+}
+p {
+  font-size: 1.1rem;
 }
 a {
   text-decoration: none;
