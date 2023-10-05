@@ -41,7 +41,6 @@
   overflow-x: hidden;
   scrollbar-color: inherit var(--background-color);
   flex-grow: 1;
-  gap: 7px;
 }
 .siteTitle {
   white-space: nowrap;
@@ -62,7 +61,7 @@
   transform: translate(10px, 0);
   transition: 0.3s all;
   min-height: 30px;
-  margin-bottom: 1px;
+  padding-bottom: 7px;
 }
 
 .siteRow:hover .siteTitle {
