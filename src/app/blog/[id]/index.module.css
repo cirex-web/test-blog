@@ -1,12 +1,38 @@
 .container {
-  font-size: 1.3rem;
-  width: 70%;
-  height: 600px;
-  overflow-y: scroll;
+  margin: 0 auto;
+  width: 80%;
+  max-width: 800px;
 }
-@media screen and (max-width: 1400px) {
+.navigation {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transition: 0.3s background-color;
+  padding: 4px 13px;
+  margin-left: -13px;
+  border-radius: 100px;
+  width: fit-content;
+}
+.navigation:hover {
+  background-color: rgba(128, 128, 128, 0.317);
+}
+.navigation:hover:active {
+  background-color: rgba(128, 128, 128, 0.617);
+}
+.navigation p {
+  margin: 0;
+}
+.title {
+  margin-top: 30px;
+  margin-bottom: 60px;
+}
+@media screen and (max-width: 900px) {
   .container {
-    height: auto;
+    width: 90%;
+  }
+}
+@media screen and (max-width: 500px) {
+  .container {
     width: 100%;
   }
 }

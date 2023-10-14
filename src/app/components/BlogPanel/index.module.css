@@ -8,5 +8,5 @@
   margin-bottom: 5px;
 }
 .blogList {
-  overflow-y: scroll;
+  overflow-y: auto;
 }

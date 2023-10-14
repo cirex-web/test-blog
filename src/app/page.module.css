@@ -1,13 +1,17 @@
 .main {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   display: flex;
   align-items: stretch;
   margin: auto;
-  max-width: 1350px;
-  box-sizing: border-box;
-  height: 70%;
-  gap: 50px;
   width: 87%;
-  overflow: hidden;
+  max-width: 1350px;
+  height: 70%;
+  max-height: 700px;
+  gap: 50px;
+  box-sizing: border-box;
 }
 .title {
   display: flex;
@@ -44,14 +48,17 @@
 }
 @media screen and (max-width: 1400px) {
   .main {
+    position: relative;
     flex-direction: column;
+    top: 0;
+    left: 0;
     margin: 0;
-    align-items: flex-start;
-    height: auto;
+    transform: none;
+    max-height: none;
     width: 100%;
   }
 }
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 600px) {
   .title {
     flex-direction: column;
     align-items: flex-start;
