@@ -3,11 +3,16 @@ import { getAllPosts, getPostData } from "../util";
 import css from "./index.module.css";
 import backArrowIcon from "@/../public/arrow-back.svg";
 import Link from "next/link";
+import Head from "next/head";
+
 export default async function Page({ params }: { params: { id: string } }) {
   const { title, html, date } = await getPostData(params.id);
   // console.log(html);
   return (
     <div className={css.container}>
+      <Head>
+        <title>Eric | {title}</title>
+      </Head>
       <Link href={"/"}>
         <div className={css.navigation}>
           <Image src={backArrowIcon} alt="back arrow" height={20} />

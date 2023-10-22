@@ -184,7 +184,7 @@ export const BrowsingHistory = () => {
         </h3>
         <h2>Check out what I&apos;ve been browsing</h2>
 
-        <h3>Because privacy doesn&apos;t exist anyways</h3>
+        <h3>Get a glimpse into my online life</h3>
       </div>
       <div className={css.siteData}>
         {browsingHistory.map((sites, index) => (

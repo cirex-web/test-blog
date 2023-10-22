@@ -13,7 +13,17 @@ export const BlogPanel = () => {
             <h3>
               <Link href={`/blog/${postData.id}`}>{postData.title}</Link>
             </h3>
-            <small className={css.date}>{postData.date}</small>
+            <small className={css.date}>
+              {postData.date
+                ? new Date(postData.date)
+                    .toLocaleTimeString("en-US", {
+                      year: "2-digit",
+                      month: "2-digit",
+                      day: "2-digit",
+                    })
+                    .split(",")[0]
+                : "No date"}
+            </small>
           </li>
         ))}
       </ul>
