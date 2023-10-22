@@ -35,6 +35,7 @@
   display: flex;
   flex-direction: column;
   gap: 60px;
+  width: 500px;
   flex-shrink: 0;
 }
 @keyframes fadein {
@@ -62,5 +63,8 @@
   .title {
     flex-direction: column;
     align-items: flex-start;
+  }
+  .leftPanel {
+    width: 100%;
   }
 }
