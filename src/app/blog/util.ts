@@ -36,8 +36,9 @@ export const getAllPosts = () => {
 };
 
 export async function getPostData(id: string):
-  Promise<{ id: string, html: string, title: string, date: string }> {
+  Promise<{ id: string, html: string, title: string, date: string } | undefined> {
   const fullPath = path.join(blogDir, `${id}.md`);
+  if (!fs.existsSync(fullPath)) return undefined;
   const fileContents = fs.readFileSync(fullPath, 'utf8');
 
   // Use gray-matter to parse the post metadata section

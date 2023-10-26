@@ -4,9 +4,12 @@ import css from "./index.module.css";
 import backArrowIcon from "@/../public/arrow-back.svg";
 import Link from "next/link";
 import Head from "next/head";
+import { notFound } from "next/navigation";
 
 export default async function Page({ params }: { params: { id: string } }) {
-  const { title, html, date } = await getPostData(params.id);
+  const postData = await getPostData(params.id);
+  if (postData === undefined) return notFound();
+  const { title, html, date } = postData;
   // console.log(html);
   return (
     <div className={css.container}>
@@ -26,4 +29,9 @@ export default async function Page({ params }: { params: { id: string } }) {
 }
 export async function generateStaticParams() {
   return getAllPosts().map((postData) => postData.id);
+}
+export async function generateMetadata({ params }: { params: { id: string } }) {
+  return {
+    title: "cirex | " + (await getPostData(params.id))?.title,
+  };
 }
