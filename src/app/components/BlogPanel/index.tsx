@@ -7,6 +7,7 @@ export const BlogPanel = () => {
   return (
     <div className={css.panel}>
       <h2>Blog posts</h2>
+      <h3>New post every Sunday!</h3>
       <ul className={css.blogList}>
         {allPosts.map((postData) => (
           <li key={postData.id} className={css.blogEntry}>
