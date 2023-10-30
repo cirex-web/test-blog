@@ -4,12 +4,12 @@ import matter from "gray-matter";
 import { remark } from "remark";
 import html from 'remark-html';
 
-
+interface Blog { id: string; date?: string; title?: string }
 const blogDir = path.join(process.cwd(), "/blog");
 export const getAllPosts = () => {
 
   const blogTitles = fs.readdirSync(blogDir);
-  const allPostsData: { id: string; date?: string; title?: string }[] =
+  const allPostsData: Blog[] =
     blogTitles.map((fileName) => {
       const id = fileName.replace(/\.md$/, "");
 
@@ -27,7 +27,7 @@ export const getAllPosts = () => {
         id,
         ...matterResult.data,
       };
-    });
+    }).filter(post => !!(post as Blog).title);
   // Sort posts by date
 
   return allPostsData.sort((a, b) => {

@@ -4,6 +4,7 @@ import Link from "next/link";
 
 export const BlogPanel = () => {
   const allPosts = getAllPosts();
+  console.log(allPosts);
   return (
     <div className={css.panel}>
       <h2>Blog posts</h2>
