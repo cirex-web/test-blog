@@ -11,6 +11,7 @@ export const getAllPosts = () => {
   const blogTitles = fs.readdirSync(blogDir);
   const allPostsData: Blog[] =
     blogTitles.map((fileName) => {
+      if (!fileName.endsWith(".md")) return undefined;
       const id = fileName.replace(/\.md$/, "");
 
       // Read markdown file as string
@@ -26,9 +27,9 @@ export const getAllPosts = () => {
       return {
         id,
         ...matterResult.data,
-        title: matterResult.data.title ?? "Untitled"
+        title: (matterResult.data.title as string) ?? "Untitled"
       };
-    }).filter(post => !!(post as Blog).title);
+    }).filter((post): post is Blog => post !== undefined);
   // Sort posts by date
 
   return allPostsData.sort((a, b) => {
