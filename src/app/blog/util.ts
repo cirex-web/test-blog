@@ -4,7 +4,7 @@ import matter from "gray-matter";
 import { remark } from "remark";
 import html from 'remark-html';
 
-interface Blog { id: string; date?: string; title?: string }
+interface Blog { id: string; date?: string; title: string }
 const blogDir = path.join(process.cwd(), "/blog");
 export const getAllPosts = () => {
 
@@ -26,6 +26,7 @@ export const getAllPosts = () => {
       return {
         id,
         ...matterResult.data,
+        title: matterResult.data.title ?? "Untitled"
       };
     }).filter(post => !!(post as Blog).title);
   // Sort posts by date
