@@ -21,6 +21,7 @@ CMU is truly magical in this regard. You're here to have your beliefs challenged
 
 postnote: I typed 38,000+ keys today, while I average typically around 10k to 20k at home. geez. There's something magical here, I'm telling ya.
 
+<!---
 Themes
 
 - - You learn that you're capable, that you're powerful, and that you have so much room to grow. You learn that knowledge is powerful, and that anything is possible.
@@ -57,3 +58,4 @@ Themes
 
   - If not that, then what good do you serve humanity?
   - aka learn for humanity. Learn for the world. Learn for the sake of helping others in the future. (And of course, have fun doing it.)
+-->
