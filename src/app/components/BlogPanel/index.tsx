@@ -1,13 +1,11 @@
 import { getAllPosts } from "@/app/blog/util";
 import css from "./index.module.css";
 import Link from "next/link";
-
 export const BlogPanel = () => {
   const allPosts = getAllPosts();
-  console.log(allPosts);
   return (
     <div className={css.panel}>
-      <h2>Blog posts</h2>
+      <h2>What&apos;s happening in my life?</h2>
       <h3>New post every Sunday!</h3>
       <ul className={css.blogList}>
         {allPosts.map((postData) => (

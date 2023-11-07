@@ -152,7 +152,6 @@ const SiteGroup = ({ sites, index }: { sites: SiteInfo[]; index: number }) => {
 
 export const BrowsingHistory = () => {
   const [browsingHistory, setBrowsingHistory] = useState<SiteInfo[][]>([]);
-  // console.log(browsingHistory);
   const [active, setActive] = useState(false);
   useEffect(() => {
     const database = getDatabase(initializeApp(firebaseConfig));

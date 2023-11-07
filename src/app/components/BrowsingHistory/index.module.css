@@ -34,7 +34,6 @@
   flex-direction: column;
   overflow-y: auto;
   overflow-x: hidden;
-  scrollbar-color: inherit var(--background-color);
   flex-grow: 1;
   padding-right: 10px;
 }
