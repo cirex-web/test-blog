@@ -11,8 +11,11 @@
 }
 .heading {
   display: flex;
+  flex-wrap: wrap;
   gap: 25px;
-  flex-shrink: 0;
+}
+.title {
+  flex: 1 0 310px;
 }
 .title * {
   animation: 0.5s fadein forwards;
