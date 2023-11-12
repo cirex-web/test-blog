@@ -32,7 +32,6 @@ const panels: {
           there&apos;s just too much hw. (It&apos;s mostly math rn) Maybe
           that&apos;s just for the first year here. We&apos;ll see.
         </p>
-        <p>How I&apos;m feeling as of 11/11/23: asdfasdfsadfsadf</p>
       </div>
     ),
     title: "About",

@@ -40,7 +40,7 @@ export const ProfilePic = ({ pictures }: { pictures: picture[] }) => {
   return (
     <div>
       <Image
-        src={"/pfp/" + (currentImage ? currentImage.file : "blank.png")}
+        src={"/static/pfp/" + (currentImage ? currentImage.file : "blank.png")}
         alt=""
         className={styles.titlePic}
         width={500}

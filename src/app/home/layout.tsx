@@ -13,7 +13,7 @@ export default async function HomeLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const imageDirectory = path.join(process.cwd(), "/public/pfp");
+  const imageDirectory = path.resolve("./public/static/pfp");
   const pictures: picture[] = (await fs.readdir(imageDirectory))
     .map((fileName) => {
       const date = fileName
