@@ -6,6 +6,7 @@ import html from 'remark-html';
 
 interface Blog { id: string; date?: string; title: string }
 const blogDir = path.join(process.cwd(), "/blog");
+console.log(blogDir);
 export const getAllPosts = () => {
 
   const blogTitles = fs.readdirSync(blogDir);
