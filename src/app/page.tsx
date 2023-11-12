@@ -9,6 +9,7 @@ const MS_PER_DAY = 1000 * 60 * 60 * 24;
 
 export default async function Home() {
   const imageDirectory = path.join(process.cwd(), "/public/pfp");
+  console.log(imageDirectory);
   const pictures: picture[] = (await fs.readdir(imageDirectory))
     .map((fileName) => {
       const date = fileName
