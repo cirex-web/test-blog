@@ -1,15 +1,10 @@
 .browsingHistory {
-  border-left: 3px solid black;
-  padding: 0 2rem;
-  max-width: 100%;
-  box-sizing: border-box;
-  flex-grow: 1;
-  overflow: hidden;
   display: flex;
   flex-direction: column;
+  height: 100%;
+  overflow: hidden; /* The weirdest fix to prevent content from spilling horizontally */
 }
 .browsingHistoryHeader {
-  background-color: var(--background-color);
   padding-bottom: 20px;
 }
 .siteGroup {
@@ -39,7 +34,6 @@
   flex-direction: column;
   overflow-y: auto;
   overflow-x: hidden;
-  scrollbar-color: inherit var(--background-color);
   flex-grow: 1;
   padding-right: 10px;
 }
@@ -133,11 +127,7 @@
     height: auto;
   }
 }
-@media screen and (max-width: 500px) {
-  .browsingHistory {
-    border: none;
-    padding: 0;
-  }
+@media screen and (max-width: 600px) {
   .siteMetadata {
     display: none;
   }

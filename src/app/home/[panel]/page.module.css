@@ -1,0 +1,41 @@
+.mainContainer {
+  border-left: 3px solid black;
+  padding: 0 2rem;
+  min-width: 0; /*flexbox on mainContainer makes things sad*/
+  max-width: 100%;
+  box-sizing: border-box;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+.button {
+  padding: 5px 15px;
+  border-radius: 150px;
+  border: 2px solid rgb(49, 49, 49);
+  font-family: inherit;
+  background-color: transparent;
+  cursor: pointer;
+  transition: 0.3s all;
+}
+
+.activeButton {
+  composes: button;
+  background-color: rgb(49, 49, 49);
+  color: white;
+}
+
+.buttonRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.panelContainer {
+  min-height: 450px;
+}
+@media screen and (max-width: 600px) {
+  .mainContainer {
+    border: none;
+    padding: 0;
+  }
+}
