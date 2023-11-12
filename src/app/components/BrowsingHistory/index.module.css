@@ -127,11 +127,7 @@
     height: auto;
   }
 }
-@media screen and (max-width: 500px) {
-  .browsingHistory {
-    border: none;
-    padding: 0;
-  }
+@media screen and (max-width: 600px) {
   .siteMetadata {
     display: none;
   }

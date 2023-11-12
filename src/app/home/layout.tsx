@@ -50,7 +50,11 @@ export default async function HomeLayout({
             </h3>
           </div>
         </div>
-        <Image src={contact} style={{ width: "100%" }} alt="contact info" />
+        <Image
+          src={contact}
+          style={{ width: "100%", height: "auto", marginTop: "32px" }}
+          alt="contact info"
+        />
       </div>
       {children}
     </main>

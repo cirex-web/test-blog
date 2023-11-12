@@ -24,7 +24,7 @@ const panels: {
           My primary thing is coding, but I also happen to have a blog now, cook
           food every so often, and run ~30 miles a week. I also am obsessed with
           productivity and finding meaning in my life, but really, I don&apos;t
-          see how anyone can&apos;t and still live a good life.
+          see how anyone can live a good life if there&apos;s no deeper meaning.
         </p>
         <p>
           Oh yeah I&apos;m a first-year college student studying CS at CMU.
@@ -32,6 +32,7 @@ const panels: {
           there&apos;s just too much hw. (It&apos;s mostly math rn) Maybe
           that&apos;s just for the first year here. We&apos;ll see.
         </p>
+        <p>How I&apos;m feeling as of 11/11/23: asdfasdfsadfsadf</p>
       </div>
     ),
     title: "About",

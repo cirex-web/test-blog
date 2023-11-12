@@ -27,8 +27,15 @@
 
 .buttonRow {
   display: flex;
+  flex-wrap: wrap;
   gap: 10px;
 }
 .panelContainer {
-  min-height: 0;
+  min-height: 450px;
+}
+@media screen and (max-width: 600px) {
+  .mainContainer {
+    border: none;
+    padding: 0;
+  }
 }
