@@ -31,6 +31,7 @@ export const getAllPosts = () => {
         title: (matterResult.data.title as string) ?? "Untitled"
       };
     }).filter((post): post is Blog => post !== undefined);
+
   // Sort posts by date
 
   return allPostsData.sort((a, b) => {

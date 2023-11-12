@@ -3,6 +3,7 @@ import css from "./index.module.css";
 import Link from "next/link";
 export const BlogPanel = () => {
   const allPosts = getAllPosts();
+  console.log(allPosts);
   return (
     <div className={css.panel}>
       <h2>What&apos;s happening in my life?</h2>
