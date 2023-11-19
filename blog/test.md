@@ -10,3 +10,5 @@ The plan is that I'll post a full-length post (whatever that means) once per wee
 Everything may look really jank right now, but I'll fix this in a few days.
 
 Oh and this is markdown transpiled into HTML, which is nice.
+
+Test arrow ![](/arrow-back.svg)
