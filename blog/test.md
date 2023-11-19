@@ -9,6 +9,17 @@ The plan is that I'll post a full-length post (whatever that means) once per wee
 
 Everything may look really jank right now, but I'll fix this in a few days.
 
-Oh and this is markdown transpiled into HTML, which is nice.
+Oh and this is markdown transpiled into HTML, which is nice. Here's some stuff it can do:
 
-Test arrow ![](/arrow-back.svg)
+![](https://imgs.xkcd.com/comics/interaction.png)\
+Hmm can I get a subtitle
+
+Noice
+
+# h1
+
+## h2
+
+### h3
+
+#### h4
