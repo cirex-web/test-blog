@@ -1,6 +1,7 @@
 ---
 title: "Hey there :D"
 date: "10/1/2023"
+updated: "11/19/23"
 ---
 
 Tis' the creation of a new blog... I'm not sure why I'm starting this, but I feel the _need_ to do so.
