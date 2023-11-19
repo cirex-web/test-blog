@@ -19,7 +19,10 @@ export default async function Page({ params }: { params: { id: string } }) {
         </div>
       </Link>
       <h2 className={css.title}>{title}</h2>
-      <div dangerouslySetInnerHTML={{ __html: html }} />
+      <div
+        className={css.blogPart}
+        dangerouslySetInnerHTML={{ __html: html }}
+      />
     </div>
   );
 }
