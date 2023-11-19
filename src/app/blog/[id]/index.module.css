@@ -26,6 +26,16 @@
   margin-top: 30px;
   margin-bottom: 60px;
 }
+.blogPart p:has(img) {
+  text-align: center;
+}
+.container h2 {
+  font-size: 3rem;
+}
+.container h3 {
+  font-size: 2rem;
+  font-weight: bold;
+}
 @media screen and (max-width: 900px) {
   .container {
     width: 90%;
