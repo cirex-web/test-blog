@@ -10,7 +10,10 @@ const nextConfig = {
                 hostname: "**",
             }
         ],
-    }
+    },
+    env: {
+        customKey: 'my-value',
+    },
 }
 
 module.exports = nextConfig

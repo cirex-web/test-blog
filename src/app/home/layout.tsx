@@ -5,6 +5,7 @@ import { BlogPanel } from "../components/BlogPanel";
 import { picture, ProfilePic } from "../components/ProfilePic";
 import contact from "@/../public/contact.svg";
 import Image from "next/image";
+import { ClockifyPanel } from "../components/ClockifyPanel";
 
 const MS_PER_DAY = 1000 * 60 * 60 * 24;
 
@@ -145,6 +146,7 @@ export default async function HomeLayout({
             </h3>
           </div>
         </div>
+        <ClockifyPanel />
         <Image
           src={contact}
           style={{ width: "100%", height: "auto", marginTop: "32px" }}
