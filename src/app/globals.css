@@ -21,7 +21,11 @@ body {
   */
   font-family: var(--font-pt-sans);
 }
-
+h1,
+h2,
+h3 {
+  overflow-wrap: anywhere;
+}
 h1 {
   font-weight: 700;
   font-size: 90px;
@@ -32,7 +36,6 @@ h1 {
 h2 {
   margin: 10px 0;
   font-family: var(--font-open-sans);
-  line-height: 1;
   font-weight: 600;
 }
 h3 {

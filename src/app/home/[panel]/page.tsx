@@ -4,7 +4,8 @@ import { BrowsingHistory } from "../../components/BrowsingHistory";
 import { redirect } from "next/navigation";
 import Link from "next/link";
 import { BlogPanel } from "@/app/components/BlogPanel";
-
+import contact from "@/../public/contact.svg";
+import Image from "next/image";
 const panels: {
   [slug: string]: { component: React.ReactNode; title: string };
 } = {
@@ -32,6 +33,16 @@ const panels: {
           there&apos;s just too much hw. (It&apos;s mostly math rn) Maybe
           that&apos;s just for the first year here. We&apos;ll see.
         </p>
+        <Image
+          src={contact}
+          style={{
+            width: "100%",
+            maxWidth: "600px",
+            height: "auto",
+            marginTop: "13px",
+          }}
+          alt="contact info"
+        />
       </div>
     ),
     title: "About",
