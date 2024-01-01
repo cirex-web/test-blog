@@ -13,7 +13,7 @@ Wealth can't make you happy.
 
 Being the best can't truly make you happy. (But I suppose it can leave you bored.)
 
-Achieving any goal of any kind can't make you happy for an extended period of time because you'll have already gotten used to the state that you were aiming for by the time you progress enough to reach that state. And when you reach that goal, you'll find that your mind will fixate on new goals past the horizon instead.)
+Achieving any goal of any kind can't make you happy for an extended period of time because you'll have already gotten used to the state that you were aiming for by the time you progress enough to reach that state. And when you reach that goal, you'll find that your mind will fixate on new goals past the horizon instead.
 
 Actually, nothing can make you happy forever. Happiness is fleeting, because it's just a bunch of chemicals in your brain. Falling in love with someone? Just chemicals. Getting promoted or a good grade doesn't make you happy - it's the chemicals in your brain (in response to that external stimuli) that do. And chemicals dissipate over time. (If they didn't, we wouldn't have drug addicts.)
 
