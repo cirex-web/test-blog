@@ -1,6 +1,6 @@
 ---
 title: [outline] Pursuing discomfort to the point of discomfort
-date: 12/31/23
+date: 1/7/24
 ---
 
 This is just an outline - will flesh this out tomorrow
