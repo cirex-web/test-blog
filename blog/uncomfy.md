@@ -3,7 +3,43 @@ title: \[outline\] Pursuing discomfort to the point of discomfort
 date: 1/7/24
 ---
 
-This is just an outline - will flesh this out tomorrow
+gimme another day - I'm working on this. Unless you want to read my half-baked draft so far
+
+Imagine this.
+
+You're in some public setting. A mall of sorts. There's tables around you. Some sort of thing you would see as outdoor seating for a restaurant, or perhaps, a library. There's a group of people sitting at a table nearby - a few old ladies doing their own thing. They're strangers. You're there with a friend, who tells you a riddle/math problem just for the fun of it. Suddenly, an intrusive thought pops into your mind. _What if you told that riddle to those ladies sitting over there?_ As you're a natural introvert, this thought immediately brings a wave of uncomfortableness. As it's this, precisely, that your brain latches onto. Go talk to that group. Do it. Do it. It's uncomfortable, so you should.
+
+And of course, you dismiss that thought, as they're just a total stranger and you have nothing in common with them. But here's the thing - the feeling persists. It gets louder, more persistent, saying that you must, that you ought to pursue that uncomfortable feeling. Conquer your insecurities! Defeat your anxiety! Stop making excuses! Are you a pussy!?
+
+And now, stuck between doing nothing, with ever-growing unease that I'm taking the easy way out thanks to the persistent badgering in my head, and growing uncomfortableness forseeing possible paths if I do approach that group of strangers, it's tearing me apart from the inside out.
+
+And... from the outside. It's just an ordinary day. I'm just sitting there, paralyzed in my own mind, going increasingly anxious over absolutely nothing. Is this even social anxiety when you are the one who's forming the anxiety out of hypothetical self-actions? I'm not scared of others judging me for simply existing - I'm scared of what happens if I take action.
+
+In this instance, like many others, I ended up choosing inaction - the potential discomfort was just too much. (There are some instances where the discomfort of inaction gets far too much for me to bear, and I do that thing.) Many minutes pass. I leave the building, but the thought remains.
+
+Fear has now turned into regret. Why was I so scared? Why couldn't I do it? Perhaps I just missed some major opportunity that I'll never get back. Woe is me. I've failed life as it stands. I'm so bad at this.
+
+It's honestly a horrible feeling. And I don't just _forget_ about it. There are some instances of me failing to do something socially uncomfortable that have stayed with me for days, even weeks on end. It's even more crippling than just wasting time - I've wasted an social opportunity that (my brain somehow thinks) is very important.
+
+## The Cause
+
+This problem wasn't a problem until very recently. Until, let's say, November or December of 2023. What happened before then was Beeminder. Specifically, I held myself accountable to do at least one socially uncomfortable action every day or I would lose $5. This goal seemed very rational - I starting holding myself accountable just days before classes started because I felt that I was missing far too many opportunities with the people around me because I was too introverted. In order to sieze the moment and not be controlled by social anxiety, I had to give myself that extra boost.
+
+In fact, it did work. I managed to go two whole months doing [this](https://www.beeminder.com/cirex/discomfort), during which I talked with far more people than I would've otherwise. In a piece of writing just one-month in, I reflected,
+
+> things that had previously been formidable, like initiating conversations with strangers or asking for absurd things, now seemed exciting. The fear was replaced by eagerness, excitement for the possibilities ahead.
+>
+> (9/14/23) [full statement at the bottom]
+
+Best use of my $5. Right? Right!?!
+
+In fact, I would've kept on going had I not run out of uncomfortable things to do. The energy to seek some ("socially acceptable") uncomfortable thing was now far too great - and I rationalized that the best thing to do now would be to stop the goal completely.
+
+All chill, right? Except... It seems that this goal had somehow rewired my brain to pursue uncomfortable social situations with the same tenacity as cravings for food when I've missed a meal.
+
+I'm no psychologist, but I think this might be a problem.
+
+### Why has this goal ended up being bad? Isn't pursuing discomfort good?
 
 I have this problem.
 
@@ -11,7 +47,9 @@ I have this problem.
 
   - Talking with strangers, asking someone some bizarre question, chatting up the employees working at the place I'm currently in, etc.
 
-- Problem is, sometimes the situation's so uncomfortable that I just won't do it. (_Weird_ for me or the other person, or maybe risky given that I don't know people. _stranger danger? Is this even still a thing?_) At this point, I'll probably have a ~35% chance of actually comitting and doing it. But if I don't do it, the feeling of doing it won't go away. It doesn't matter if I'm with friends, if I'm with my parents, or if I'm alone. It's going to be in the back of my mind.
+- Problem is, sometimes the situation's so uncomfortable that I just won't do it. (_Weird_ for me or the other person, or maybe risky given that I don't know people. _stranger danger? Is this even still a thing?_)
+
+  - At this point, I'll probably have a ~35% chance of actually comitting and doing it. But if I don't do it, the feeling of doing it won't go away. It doesn't matter if I'm with friends, if I'm with my parents, or if I'm alone. It's going to be in the back of my mind.
 
 - If I don't do it, I'll feel horrible inside.
 
@@ -23,6 +61,8 @@ I have this problem.
 
   - Regret can last for days, even weeks at times. (Go through some examples)
 
+    -
+
 - Why?
 
   - What strikes me as particularly interesting is that this kind of mind-badgering and regret only appears to 1) uncomfortable and 2) social situations. And 3), this problem only started a few weeks ago.
@@ -32,10 +72,6 @@ I have this problem.
     - > I put $5 on the line through an app called Beeminder... Why? Life is full of fleeting opportunities, moments throughout the day that require just a bit of courage or tenacity to pursue.
       >
       > ...
-      >
-      > things that had previously been formidable, like initiating conversations with strangers or asking for absurd things, now seemed exciting. The fear was replaced by eagerness, excitement for the possibilities ahead.
-      >
-      > (9/14/23) [full statement at the bottom]
 
     - > Seizing the opportunity with $5 at stake (10/8/23)
 
