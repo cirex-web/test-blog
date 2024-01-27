@@ -61,7 +61,8 @@ Curious as to how much time I wasted or productively made use of, I then proceed
 - **Actually productive**: Anything where I *did the thing that I set out to do* (including socializing) OR things that are generally considered productive but unplanned, like a spontaneous 2-hour reading session in the middle of the day. \[4\]
 - **Debatable**: All of the uncategorized wellbeing and misc tasks, as well as break, because how long does a break need to be before it becomes unproductive?
 - **Not productive**: Only the wasted time category goes here
-- ![](https://holocron.so/uploads/13c08793-image.png)
+
+![](https://holocron.so/uploads/13c08793-image.png)
 
 What's interesting is that the time *doing* things that I wanted to do accounted for only 37.8% of the time I spent awake. I didn't expect routine tasks to take up 1/3 of my waking hours either. Maybe I eat too slowly? Shower too much?
 
