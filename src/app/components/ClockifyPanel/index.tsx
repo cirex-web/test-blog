@@ -95,22 +95,35 @@ export const ClockifyPanel = ({}) => {
     }
   }, [currentTaskData]);
   useEffect(() => {
-    const intervalId = setInterval(async () => {
-      try {
-        const data = await fetch(process.env.NEXT_PUBLIC_CLOCKIFY_ENDPOINT!, {
-          headers: { "x-api-key": process.env.NEXT_PUBLIC_CLOCKIFY_API_KEY! },
-          signal: AbortSignal.timeout(1000),
-        });
-        const entryId = (await data.json())[0].id;
-        if (!!entryId) {
-          const timeEntryInfo = await getDetailedEntryData(entryId);
-          setCurrentTaskData(timeEntryInfo);
+    const intervalId = setInterval(
+      (function selfCall() {
+        async function run() {
+          try {
+            const data = await fetch(
+              process.env.NEXT_PUBLIC_CLOCKIFY_ENDPOINT!,
+              {
+                headers: {
+                  "x-api-key": process.env.NEXT_PUBLIC_CLOCKIFY_API_KEY!,
+                },
+                signal: AbortSignal.timeout(1000),
+              }
+            );
+            const entryId = (await data.json())[0].id;
+            if (!!entryId) {
+              const timeEntryInfo = await getDetailedEntryData(entryId);
+              setCurrentTaskData(timeEntryInfo);
+            }
+          } catch (e) {
+            console.log(e);
+            //ignored (likely timeout)
+          }
         }
-      } catch (e) {
-        console.log(e);
-        //ignored (likely timeout)
-      }
-    }, 1500);
+        run();
+
+        return selfCall;
+      })(),
+      1500
+    );
     return () => clearInterval(intervalId);
   }, []);
   return (

@@ -139,10 +139,11 @@ export default async function HomeLayout({
 
           <div className={styles.title}>
             <h2 style={{ fontSize: "50px" }}>Hi! I&apos;m</h2>
-            <h1>Eric Xu</h1>
-            <h3>
+            <h1 style={{ position: "relative", left: "-4px" }}>Eric Xu</h1>
+            <h3 style={{ fontSize: "30px" }}>What is love?</h3>
+            {/* <h3>
               Coder, dreamer, and productivity-obsessed digital minimalist
-            </h3>
+            </h3> */}
           </div>
         </div>
         <ClockifyPanel />

@@ -21,18 +21,24 @@ const panels: {
     component: (
       <div>
         <p>
+          First year student at CMU studying computational biology. If we could
+          save people&apos;s lives with code, wouldn&apos;t that be cool? It
+          would also be cool if I had more than two friends in college, but I
+          digress.
+        </p>
+        {/* <p>
           What defines a person? Is it their actions? Their thoughts? Interests?
           My primary thing is coding, but I also happen to have a blog now, cook
           food every so often, and run ~30 miles a week. I also am obsessed with
           productivity and finding meaning in my life, but really, I don&apos;t
           see how anyone can live a good life if there&apos;s no deeper meaning.
-        </p>
-        <p>
+        </p> */}
+        {/* <p>
           Oh yeah I&apos;m a first-year college student studying CS at CMU.
           Ironically, I&apos;m not getting much of a chance to code here because
           there&apos;s just too much hw. (It&apos;s mostly math rn) Maybe
           that&apos;s just for the first year here. We&apos;ll see.
-        </p>
+        </p> */}
         <Image
           src={contact}
           style={{
