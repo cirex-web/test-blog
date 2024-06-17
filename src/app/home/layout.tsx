@@ -146,7 +146,7 @@ export default async function HomeLayout({
             </h3> */}
           </div>
         </div>
-        <ClockifyPanel />
+        {/* <ClockifyPanel /> */}
       </div>
       {children}
     </main>
