@@ -86,7 +86,7 @@ export default async function HomeLayout({
       this to end I want this to end I want this to end I want this to end I
       want this to end I want this to end I want this to end I want this to end
       I want this to end I want this to end I want this to end I want this to
-      end but ig it'll have to wait another day
+      end but ig it&apos;ll have to wait another day
     </div>
   );
   const imageDirectory = path.resolve("./public/static/pfp");
