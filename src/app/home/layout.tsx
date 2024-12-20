@@ -13,6 +13,82 @@ export default async function HomeLayout({
 }: {
   children: React.ReactNode;
 }) {
+  return (
+    <div>
+      I want this to end I want this to end I want this to end I want this to
+      end I want this to end I want this to end I want this to end I want this
+      to end I want this to end I want this to end I want this to end I want
+      this to end I want this to end I want this to end I want this to end I
+      want this to end I want this to end I want this to end I want this to end
+      I want this to end I want this to end I want this to end I want this to
+      end I want this to end I want this to end I want this to end I want this
+      to end I want this to end I want this to end I want this to end I want
+      this to end I want this to end I want this to end I want this to end I
+      want this to end I want this to end I want this to end I want this to end
+      I want this to end I want this to end I want this to end I want this to
+      end I want this to end I want this to end I want this to end I want this
+      to end I want this to end I want this to end I want this to end I want
+      this to end I want this to end I want this to end I want this to end I
+      want this to end I want this to end I want this to end I want this to end
+      I want this to end I want this to end I want this to end I want this to
+      end I want this to end I want this to end I want this to end I want this
+      to end I want this to end I want this to end I want this to end I want
+      this to end I want this to end I want this to end I want this to end I
+      want this to end I want this to end I want this to end I want this to end
+      I want this to end I want this to end I want this to end I want this to
+      end I want this to end I want this to end I want this to end I want this
+      to end I want this to end I want this to end I want this to end I want
+      this to end I want this to end I want this to end I want this to end I
+      want this to end I want this to end I want this to end I want this to end
+      I want this to end I want this to end I want this to end I want this to
+      end I want this to end I want this to end I want this to end I want this
+      to end I want this to end I want this to end I want this to end I want
+      this to end I want this to end I want this to end I want this to end I
+      want this to end I want this to end I want this to end I want this to end
+      I want this to end I want this to end I want this to end I want this to
+      end I want this to end I want this to end I want this to end I want this
+      to end I want this to end I want this to end I want this to end I want
+      this to end I want this to end I want this to end I want this to end I
+      want this to end I want this to end I want this to end I want this to end
+      I want this to end I want this to end I want this to end I want this to
+      end I want this to end I want this to end I want this to end I want this
+      to end I want this to end I want this to end I want this to end I want
+      this to end I want this to end I want this to end I want this to end I
+      want this to end I want this to end I want this to end I want this to end
+      I want this to end I want this to end I want this to end I want this to
+      end I want this to end I want this to end I want this to end I want this
+      to end I want this to end I want this to end I want this to end I want
+      this to end I want this to end I want this to end I want this to end I
+      want this to end I want this to end I want this to end I want this to end
+      I want this to end I want this to end I want this to end I want this to
+      end I want this to end I want this to end I want this to end I want this
+      to end I want this to end I want this to end I want this to end I want
+      this to end I want this to end I want this to end I want this to end I
+      want this to end I want this to end I want this to end I want this to end
+      I want this to end I want this to end I want this to end I want this to
+      end I want this to end I want this to end I want this to end I want this
+      to end I want this to end I want this to end I want this to end I want
+      this to end I want this to end I want this to end I want this to end I
+      want this to end I want this to end I want this to end I want this to end
+      I want this to end I want this to end I want this to end I want this to
+      end I want this to end I want this to end I want this to end I want this
+      to end I want this to end I want this to end I want this to end I want
+      this to end I want this to end I want this to end I want this to end I
+      want this to end I want this to end I want this to end I want this to end
+      I want this to end I want this to end I want this to end I want this to
+      end I want this to end I want this to end I want this to end I want this
+      to end I want this to end I want this to end I want this to end I want
+      this to end I want this to end I want this to end I want this to end I
+      want this to end I want this to end I want this to end I want this to end
+      I want this to end I want this to end I want this to end I want this to
+      end I want this to end I want this to end I want this to end I want this
+      to end I want this to end I want this to end I want this to end I want
+      this to end I want this to end I want this to end I want this to end I
+      want this to end I want this to end I want this to end I want this to end
+      I want this to end I want this to end I want this to end I want this to
+      end but ig it'll have to wait another day
+    </div>
+  );
   const imageDirectory = path.resolve("./public/static/pfp");
   // const pictures: picture[] = (await fs.readdir(imageDirectory))
   //   .map((fileName) => {
