@@ -21,11 +21,16 @@ const panels: {
     component: (
       <div>
         <p>
+          Second year student at CMU "studying" CS. Really though, I probably
+          spend my time working for Po-shen Loh, coding random stuff, playing
+          violin, and trying to have a good time.
+        </p>
+        {/* <p>
           First year student at CMU studying computational biology. If we could
           save people&apos;s lives with code, wouldn&apos;t that be cool? It
           would also be cool if I had more than two friends in college, but I
           digress.
-        </p>
+        </p> */}
         {/* <p>
           What defines a person? Is it their actions? Their thoughts? Interests?
           My primary thing is coding, but I also happen to have a blog now, cook

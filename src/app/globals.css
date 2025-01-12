@@ -20,6 +20,22 @@ body {
   shrinking but there will also be a scrollbar)
   */
   font-family: var(--font-pt-sans);
+  background-image: linear-gradient(
+    335deg,
+    hsl(181deg 59% 63%) 0%,
+    hsl(181deg 58% 65%) 8%,
+    hsl(181deg 57% 67%) 17%,
+    hsl(181deg 57% 68%) 25%,
+    hsl(181deg 56% 70%) 33%,
+    hsl(181deg 55% 72%) 42%,
+    hsl(181deg 54% 73%) 50%,
+    hsl(181deg 53% 75%) 58%,
+    hsl(181deg 52% 76%) 67%,
+    hsl(181deg 51% 78%) 75%,
+    hsl(181deg 50% 79%) 83%,
+    hsl(181deg 49% 81%) 92%,
+    hsl(181deg 48% 82%) 100%
+  );
 }
 h1,
 h2,

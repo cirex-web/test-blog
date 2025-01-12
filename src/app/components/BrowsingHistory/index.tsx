@@ -74,7 +74,7 @@ const Site = ({
             className={css.logo}
             style={{ visibility: showFavicon ? "inherit" : "hidden" }}
           >
-            <Image
+            <img
               src={imageSrc}
               alt=""
               width={30}
