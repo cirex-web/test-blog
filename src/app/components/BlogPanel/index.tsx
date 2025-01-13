@@ -7,7 +7,7 @@ export const BlogPanel = () => {
   return (
     <div className={css.panel}>
       <h2>What&apos;s happening in my life?</h2>
-      <h3>Temporary turned permanent hiatus - enjoy the archive tho</h3>
+      <h3>New post every sometimes. Primarily coding and life focused.</h3>
       <ul className={css.blogList}>
         {allPosts.map((postData) => (
           <li key={postData.id} className={css.blogEntry}>

@@ -31,7 +31,6 @@
   gap: 10px;
 }
 .panelContainer {
-  min-height: 450px;
   overflow: auto;
 }
 @media screen and (max-width: 600px) {

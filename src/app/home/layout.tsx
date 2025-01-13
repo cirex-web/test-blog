@@ -5,7 +5,8 @@ import { BlogPanel } from "../components/BlogPanel";
 import { picture, ProfilePic } from "../components/ProfilePic";
 
 import { ClockifyPanel } from "../components/ClockifyPanel";
-
+import migu from "../../../public/migu.png";
+import Image from "next/image";
 const MS_PER_DAY = 1000 * 60 * 60 * 24;
 
 export default async function HomeLayout({
@@ -141,11 +142,13 @@ export default async function HomeLayout({
             <h2 style={{ fontSize: "50px" }}>Hi! I&apos;m</h2>
             <h1 style={{ position: "relative", left: "-4px" }}>Eric Xu</h1>
             <h3 style={{ fontSize: "30px" }}>What is love?</h3>
+            {/* <p style={{ fontSize: "10px" }}>(Imagine if I'm asexual)</p> */}
             {/* <h3>
               Coder, dreamer, and productivity-obsessed digital minimalist
             </h3> */}
           </div>
         </div>
+        <Image src={migu} alt="miku" className={styles.heading__miku} />
         {/* <ClockifyPanel /> */}
       </div>
       {children}
