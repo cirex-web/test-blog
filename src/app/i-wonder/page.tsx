@@ -1,7 +1,8 @@
 export default function Text() {
   return (
     <div style={{ padding: "10px", fontSize: "20px" }}>
-      "to kill herself doesn’t do so out of quote ‘hopelessness’ or any abstract
+      &quot;The so-called ‘psychotically depressed’ person who tries to kill
+      herself doesn’t do so out of quote ‘hopelessness’ or any abstract
       conviction that life’s assets and debits do not square. And surely not
       because death seems suddenly appealing. The person in whom Its invisible
       agony reaches a certain unendurable level will kill herself the same way a
@@ -16,7 +17,7 @@ export default function Text() {
       nobody down on the sidewalk, looking up and yelling ‘Don’t!’ and ‘Hang
       on!’, can understand the jump. Not really. You’d have to have personally
       been trapped and felt flames to really understand a terror way beyond
-      falling.";
+      falling.&quot;
     </div>
   );
 }
