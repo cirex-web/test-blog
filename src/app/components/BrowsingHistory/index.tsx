@@ -26,7 +26,12 @@ const firebaseConfig = {
   messagingSenderId: "44256460155",
   appId: "1:44256460155:web:b4af3f81d0277622be51de",
 };
-
+const protectedSites = ["github.com", "slack.com", "app.slack.com"];
+const shouldShowTitle = (siteInfo: SiteInfo) => {
+  const url = new URL(siteInfo.url);
+  console.log(url.hostname);
+  return !protectedSites.includes(url.hostname);
+};
 const Site = ({
   siteInfo,
   index,
@@ -89,7 +94,9 @@ const Site = ({
             />
           </div>
           <h3 className={css.siteTitle}>
-            <a href={siteInfo.url}>{siteInfo.title}</a>
+            <a href={siteInfo.url}>
+              {shouldShowTitle(siteInfo) ? siteInfo.title : siteInfo.url}
+            </a>
           </h3>
           <small className={css.siteMetadata}>{readableTime}</small>
         </div>
