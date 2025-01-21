@@ -29,7 +29,6 @@ const firebaseConfig = {
 const protectedSites = ["github.com", "slack.com", "app.slack.com"];
 const shouldShowTitle = (siteInfo: SiteInfo) => {
   const url = new URL(siteInfo.url);
-  console.log(url.hostname);
   return !protectedSites.includes(url.hostname);
 };
 const Site = ({
