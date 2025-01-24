@@ -1,0 +1,1401 @@
+/* ==========================================================================
+   LIBRARY THEME (Version: 23.4)
+   --------------------------------------------------------------------------
+   * README
+
+   * STRUCTURE
+      : Spacing
+      : Sizing
+      : Border radius
+      : Grid system
+      : Content widths
+
+   * ELEMENTS
+      : Typography
+         : Titles
+         : Default
+         : Labels
+         : Descriptions
+      : Colors palette
+      : Toggles
+      : Dividers
+      : Logo
+      : Fields
+      : Buttons
+         : Primary
+         : Secondary
+         : Tertiary
+         : Iconographics
+         : Registration/application
+            : Customizables
+         : Share
+         : In file input
+      : Thumbnails
+
+   * COMPONENTS
+      : Menu
+         : Visible
+         : Toggleable
+      : Tables
+      : Cards
+      : Result
+      : Form item structures
+         : fieldSpec
+      : Boxes
+      : Modal
+
+   * MODULES
+      : Header
+      : Banner
+      : Main
+      : Footer
+
+   * PAGETYPES
+      : Blocking login
+   ========================================================================== */
+
+/* README
+   --------------------------------------------------------------------------
+   We manage from here the varabilized properties in the library for each element,
+   component, module or pagetype. So these are the easily customizable parts for
+   us, Studio sholud bear this in mind in our behalf. Any further styling, or
+   overrides, should be placed in the Specifics stylesheet. You can use these
+   variables wherever you want - or you can create new ones if it serves you.
+   --------------------------------------------------------------------------
+   We are trying a desktop-first approach, with tablet and mobile redefinitions
+   if needed. This may be reconsidered in the future, depending on how it works.
+   --------------------------------------------------------------------------
+   Bear in mind many of these variables may be used in more than one place.
+   -------------------------------------------------------------------------- */
+
+/* STRUCTURE: Spacing
+   --------------------------------------------------------------------------
+   We use these variables for thoughtful margins and paddings. These are not
+   meant to be edited; you can use them -as they are or combined with calc()-
+   for any spacing you need to set.
+   -------------------------------------------------------------------------- */
+
+:root {
+    --spacing--basis: .4rem;
+
+        --spacer--xxs: calc(var(--spacing--basis) * .5); /* 0.2rem +doc+ */
+        --spacer--xs: calc(var(--spacing--basis) * 1); /* 0.4rem +doc+ */
+        --spacer--s: calc(var(--spacing--basis) * 2); /* 0.8rem +doc+ */
+        --spacer--s2: calc(var(--spacing--basis) * 3); /* 1.2rem +doc+ */
+        --spacer--ms: calc((var(--spacing--basis) * 3) + 0.2rem); /* 1.4rem +doc+ */
+        --spacer--m: calc(var(--spacing--basis) * 4); /* 1.6rem +doc+ */
+        --spacer--m2: calc(var(--spacing--basis) * 5); /* 2rem +doc+ */
+        --spacer--ml: calc((var(--spacing--basis) * 6) - 0.1rem); /* 2.3rem +doc+ */
+        --spacer--l: calc(var(--spacing--basis) * 6); /* 2.4rem +doc+ */
+        --spacer--xl: calc(var(--spacing--basis) * 8); /* 3.2rem +doc+ */
+        --spacer--xxl: calc(var(--spacing--basis) * 10); /* 4.0rem +doc+ */
+        --spacer--xxxl: calc(var(--spacing--basis) * 12); /* 4.8rem +doc+ */
+}
+
+/* STRUCTURE: Sizing
+   --------------------------------------------------------------------------
+   We use this variable to calc() widths and heights for things that are kind
+   of grided. We don't have sub-variables like we do for spacings, as each use
+   tends to be unique. We may discard this approach if it results impractical.
+   -------------------------------------------------------------------------- */
+
+:root {
+    --sizing--basis: .4rem;
+        /* ↳ if needed, change this one - all sizings using it will adjust proportionally */
+}
+
+/* STRUCTURE: Border radius
+   --------------------------------------------------------------------------
+   We define a default here, and then use it as the value in component/module
+   specific border-radius variables.
+   -------------------------------------------------------------------------- */
+
+:root {
+    --border--radius: calc(var(--sizing--basis) * 1); /* .4rem +doc+ */
+}
+
+/* STRUCTURE: Grid system
+   --------------------------------------------------------------------------
+   Check these values carefully with the mockup's grid. We use them to calc()
+   some layouts below.
+   -------------------------------------------------------------------------- */
+
+:root {
+    --grid--laterals: var(--spacer--xl);
+        /* ↳ safe space between the mockup grid and the viewport sides - may or may not equal the column's gap */
+        /* ↳ measurement really available only in mobile and tablet mockups - we assume the tablet value for desktop as well */
+    --grid--width: 120.8rem;
+    --grid--columns--amount: 16;
+    --grid--columns--gap: var(--spacer--l);
+    --grid--columns--1: calc((var(--grid--width) - (var(--grid--columns--amount) - 1) * var(--grid--columns--gap)) / var(--grid--columns--amount));
+        /* ↳ beware we could hardcode this value straight from the mockup, but we calculate it instead, to keep it dynamic through other variables. */
+}
+
+/* Media query to target only tablet */
+@media all and (min-width:751px) and (max-width:1024px) {
+    :root {
+        --grid--width: 70.6rem;
+        --grid--columns--amount: 10;
+    }
+
+}
+
+/* Media query to target only mobile */
+@media all and (max-width:750px) {
+    :root {
+        --grid--laterals: calc(var(--spacer--l) + var(--spacer--xs));
+        --grid--width: 34.3rem;
+        --grid--columns--amount: 4;
+        --grid--columns--gap: var(--spacer--m);
+    }
+
+}
+
+/* STRUCTURE: Content widths
+   --------------------------------------------------------------------------
+   Check these values carefully with the mockup measurements. Beware we could
+   hardcode this values straight from the mockup, but we calculate them instead,
+   to keep them dynamic through other variables.
+   -------------------------------------------------------------------------- */
+
+:root {
+    --content--w--full: var(--grid--width);
+        /* ↳ 16/16 mockup columns + gaps between */
+        /* ↳ the site content's full width */
+    --content--w--reduced: calc(.875 * var(--grid--columns--1) * var(--grid--columns--amount) + ((.875 * var(--grid--columns--amount)) - 1) * var(--grid--columns--gap));
+        /* ↳ 14/16 mockup columns + gaps between */
+        /* ↳ to limit the site's content to a centered 87,5% of the available space */
+    --content--w--narrow: calc(.75 * var(--grid--columns--1) * var(--grid--columns--amount) + ((.75 * var(--grid--columns--amount)) - 1) * var(--grid--columns--gap));
+        /* ↳ 12/16 mockup columns + gaps between */
+        /* ↳ to limit the site's content to a centered 75% of the available space */
+    --content--w--narrower: calc(.5 * var(--grid--columns--1) * var(--grid--columns--amount) + ((.5 * var(--grid--columns--amount)) - 1) * var(--grid--columns--gap));
+        /* ↳ 08/16 mockup columns + gaps between */
+        /* ↳ to limit the site's content to a centered 50% of the available space */
+    --content--w--narrowest: calc(.25 * var(--grid--columns--1) * var(--grid--columns--amount) + ((.25 * var(--grid--columns--amount)) - 1) * var(--grid--columns--gap));
+        /* ↳ 04/16 mockup columns + gaps between */
+        /* ↳ to limit the site's content to a centered 25% of the available space */
+    --content--w--sidebar: calc(.25 * var(--grid--columns--1) * var(--grid--columns--amount) + ((.25 * var(--grid--columns--amount)) - 1) * var(--grid--columns--gap));
+        /* ↳ 04/16 mockup columns + gaps between */
+        /* ↳ to limit the sidebar grid column to a 25% of the available space */
+    --content--w--subtabs: calc(.1875 * var(--grid--columns--1) * var(--grid--columns--amount) + ((.1875 * var(--grid--columns--amount)) - 1) * var(--grid--columns--gap));
+        /* ↳ 03/16 mockup columns + gaps between */
+        /* ↳ to limit the subtabs grid column to a 18.75% of the available space */
+    --content--w--filters: calc(.1875 * var(--grid--columns--1) * var(--grid--columns--amount) + ((.1875 * var(--grid--columns--amount)) - 1) * var(--grid--columns--gap));
+        /* ↳ 03/16 mockup columns + gaps between */
+        /* ↳ to limit the filters grid column to a 18.75% of the available space */
+}
+
+/* Media query to target only tablet */
+@media all and (min-width:751px) and (max-width:1024px) {
+    :root {
+        --content--w--narrow: var(--grid--width);
+            /* ↳ the site content's width (ej: 10/10 columns + gaps between) */
+        --content--w--narrower: calc(.8 * var(--grid--columns--1) * var(--grid--columns--amount) + ((.8 * var(--grid--columns--amount)) - 1) * var(--grid--columns--gap));
+            /* ↳ 80% the site content's width (ej: 08/10 columns + gaps between) */
+        --content--w--narrowest: calc(.5 * var(--grid--columns--1) * var(--grid--columns--amount) + ((.5 * var(--grid--columns--amount)) - 1) * var(--grid--columns--gap));
+            /* ↳ 50% the site content's width (ej: 05/10 columns + gaps between) */
+    }
+
+}
+
+/* ELEMENTS: Typography: Default
+   --------------------------------------------------------------------------
+   Check these values carefully with the mockup measurements.
+   -------------------------------------------------------------------------- */
+
+:root {
+    --font: 'TTCommons';
+       /* ↳ at the moment only system fonts from the font-family fallback are at use - set a custom one from here for everything in the site */
+    --font--alt: 'TTCommons';
+       /* ↳ if needed, set a value for this one - to begin, it will change the font for titles and buttons */
+    --font--weight--bold: 600;
+       /* ↳ depending on the font, the "bold" may be either the 500 or the 700 weight - change it everywhere from here */
+    --font--weight--book: 400;
+
+    --font--size: 1.7rem;
+       /* ↳ the .body font-size that almost everything inherits */
+    --font--size--00: 1.4rem;
+    --font--size--01: 1.6rem;
+    --font--size--015: 1.7rem;
+    --font--size--02: 1.8rem;
+    --font--size--03: 2rem;
+    --font--size--04: 2.2rem;
+    --font--size--045: 2.3rem;
+    --font--size--05: 2.4rem;
+    --font--size--06: 2.6rem;
+    --font--size--065: 2.7rem;
+    --font--size--07: 2.8rem;
+    --font--size--08: 3rem;
+    --font--size--09: 3.2rem;
+    --font--size--095: 3.4rem;
+    --font--size--10: 3.6rem;
+    --font--size--11: 5.6rem;
+       /* ↳ font-sizes for Titles and in stylesheet #7 for font helper classes */
+    --font--size--bigger: 120%;
+       /* ↳ font-size for bigger texts */
+    --font--size--smaller: 80%;
+       /* ↳ font-size for smaller texts, used in the <small> tag */
+}
+
+/* Media query to target only mobile */
+@media all and (max-width:750px) {
+    :root{
+        --font--size--04: 2rem;
+        --font--size--045: 2rem;
+        --font--size--05: 2.2rem;
+        --font--size--06: 2.4rem;
+        --font--size--065: 2.4rem;
+        --font--size--07: 2.6rem;
+        --font--size--075: 2.7rem;
+        --font--size--08: 2.8rem;
+        --font--size--09: 3rem;
+        --font--size--10: 3.2rem;
+        --font--size--11: 3.4rem;
+    }
+
+}
+
+/* ELEMENTS: Typography: Titles
+   --------------------------------------------------------------------------
+   Check these values carefully with the mockup measurements.
+   -------------------------------------------------------------------------- */
+:root {
+    --title--font: var(--font--alt);
+    --title--font--size: var(--font--size);
+    --title--font--weight: var(--font--weight--bold);
+    --title--font--color: inherit;
+}
+
+.title--00 {
+    --title--font--size: var(--font--size--00);
+}
+
+.title--01 {
+    --title--font--size: var(--font--size--01);
+}
+
+.title--02 {
+    --title--font--size: var(--font--size--02);
+}
+
+.title--03 {
+    --title--font--size: var(--font--size--03);
+}
+
+.title--04 {
+    --title--font--size: var(--font--size--04);
+}
+
+.title--045 {
+    --title--font--size: var(--font--size--045);
+}
+
+.title--05 {
+    --title--font--size: var(--font--size--05);
+}
+
+.title--06 {
+    --title--font--size: var(--font--size--06);
+}
+
+.title--065 {
+    --title--font--size: var(--font--size--065);
+}
+
+.title--07 {
+    --title--font--size: var(--font--size--07);
+}
+
+.title--08 {
+    --title--font--size: var(--font--size--08);
+}
+
+.title--09 {
+    --title--font--size: var(--font--size--09);
+}
+
+.title--10 {
+    --title--font--size: var(--font--size--10);
+}
+
+.title--11 {
+    --title--font--size: var(--font--size--11);
+}
+
+.title--banner {
+    --title--font--size: var(--font--size--10);
+}
+
+.banner--scrolling .title--banner {
+    --title--font--size: var(--font--size--07);
+}
+
+.title--tabs {
+    --title--font--size: var(--font--size--04);
+}
+
+.ui-dialog-title {
+    --title--font--size: var(--font--size--04);
+}
+
+.Separator {
+    --title--font--size: var(--font--size--065);
+}
+
+.article--details.regular-fields-label--title .article__content__view__field__label,
+.article--details .regular-field-label--title .article__content__view__field__label {
+    --title--font--size: var(--font--size--07);
+}
+
+/* ELEMENTS: Typography: Labels
+   --------------------------------------------------------------------------
+   Check these values carefully with the mockup measurements.
+   -------------------------------------------------------------------------- */
+
+:root {
+    --labels--font--size: 1.7rem;
+    --labels--font--weight: 500;
+    --labels--font--color: var(--color--black);
+    --sublabels--font--size: var(--labels--font--size);
+    --sublabels--font--weight: var(--labels--font--weight);
+    --sublabels--font--color: var(--labels--font--color);
+}
+
+/* ELEMENTS: Typography: Descriptions
+   --------------------------------------------------------------------------
+   Check these values carefully with the mockup measurements.
+   -------------------------------------------------------------------------- */
+
+:root {
+    --descriptions--font--size: 1.7rem;
+}
+
+/* ELEMENTS: Colors palette
+   --------------------------------------------------------------------------
+   Check these values carefully with the mockup measurements.
+   -------------------------------------------------------------------------- */
+
+:root {
+    --color--white: #FFFFFF;
+    --color--grey--lightest: unset;
+    --color--grey--lighter: #F5F5F5;
+    --color--grey--light: #E8E8E8;
+    --color--grey--medium: #CCCCCC;
+    --color--grey--dark: #8A8A8A;
+    --color--grey--darker: #5E5E5E;
+    --color--grey--darkest: #333333;
+    --color--black: #000000;
+
+    --color--shadow: rgba(102, 102, 102, 0.3);
+    --color--overlay--light: rgba(255, 255, 255, 0.8);
+    --color--overlay--dark: rgba(51, 51, 51, .75);
+
+    --color--brand: var(--color--black);
+    --color--brand--sub-1: #0280a5;
+    --color--brand--sub-2: #666666;
+    --color--brand--sub-3: #f0f0f0;
+    --color--brand--sub-4: #f5f5f5;
+
+    --color--disabled: var(--color--grey--darker);
+    --color--disabled--sub-1: var(--color--grey--light);
+
+    --color--borders: var(--color--black);
+    --color--background: var(--color--white);
+    --color--font: var(--color--black);
+
+    --color--clickeable: var(--color--brand--sub-1);
+    --color--clickeable--sub-1: #0C4C8F;
+    --color--error: #cc0000;
+    --color--error--sub-1: #FCEEEE;
+    --color--success: #04A777;
+    --color--success--sub-1: #E5F6F1;
+    --color--warning: #F1BE32;
+    --color--warning--sub-1: #FBF6E9;
+
+    /* see color for buttons in :Buttons section for easier management */
+}
+
+.header {
+    --color--background: var(--color--white); /* templatebuilder .header - to be deleted on basePortalCloner */
+    --color--font: var(--color--grey--darkest); /* templatebuilder .header - to be deleted on basePortalCloner */
+    --color--clickeable: #1063BA; /* templatebuilder .header - to be deleted on basePortalCloner */
+    /* templatebuilder .header --toggle--font--color - to be deleted on basePortalCloner */
+}
+
+.banner {
+    --color--background: transparent; /* templatebuilder .banner - to be deleted on basePortalCloner */
+    --color--font: var(--color--grey--darkest); /* templatebuilder .banner - to be deleted on basePortalCloner */
+    --color--clickeable: #1063BA; /* templatebuilder .banner - to be deleted on basePortalCloner */
+}
+
+.breadcrumbs {
+    --color--background: var(--color--grey--lighter); /* templatebuilder .banner - to be deleted on basePortalCloner */
+    --color--font: var(--color--grey--darkest); /* templatebuilder .banner - to be deleted on basePortalCloner */
+    --color--clickeable: #1063BA; /* templatebuilder .banner - to be deleted on basePortalCloner */
+}
+
+.main {
+    --color--background: var(--color--white); /* templatebuilder .main - to be deleted on basePortalCloner */
+    --color--font: var(--color--black); /* templatebuilder .main - to be deleted on basePortalCloner */
+    --color--clickeable: var(--color--black); /* templatebuilder .main - to be deleted on basePortalCloner */
+    /* templatebuilder .main --toggle--font--color - to be deleted on basePortalCloner */
+}
+
+.footer {
+    --color--background: var(--color--white); /* templatebuilder .footer - to be deleted on basePortalCloner */
+    --color--font: var(--color--grey--darkest); /* templatebuilder .footer - to be deleted on basePortalCloner */
+    --color--clickeable: #1063BA; /* templatebuilder .footer - to be deleted on basePortalCloner */
+}
+
+/* ELEMENTS: Toggles
+   --------------------------------------------------------------------------
+   We define a default here, and then use it as the value in component/module
+   specific toggle-size variables.
+   -------------------------------------------------------------------------- */
+
+:root {
+    --toggle--border--radius: 0;
+    --toggle--border--width: 0;
+    --toggle--border--color: transparent;
+    --toggle--width: calc(var(--sizing--basis) * 13); /* 5.2rem +doc+ */
+    --toggle--height: var(--toggle--width);
+    --toggle--background--color: transparent;
+    --toggle--font--color: var(--color--black);
+    --toggle__icon--width: auto;
+    --toggle__icon--height: auto;
+}
+
+/* ELEMENTS: Toggles: Menu
+   -------------------------------------------------------------------------- */
+
+.toggle--menu {
+    --toggle--width: calc(var(--sizing--basis) * 18); /* 7.2rem +doc+ */
+    --toggle--height: var(--header--height);
+    --toggle--background--color: var(--color--white); /* templatebuilder .toggle--menu - to be deleted on basePortalCloner */
+    --toggle__icon--width: calc(var(--sizing--basis) * 6); /* 2.4rem +doc+ */
+    --toggle__icon--height: calc(var(--sizing--basis) * 6); /* 2.4rem +doc+ */
+}
+
+/* ELEMENTS: Toggles: Search
+   -------------------------------------------------------------------------- */
+
+.section[search-type="toggleable"] .section__header,
+.toggle--search {
+    --toggle--width: calc(var(--sizing--basis) * 11); /* 4.4rem +doc+ */
+    --toggle--height: calc(var(--sizing--basis) * 11); /* 4.4rem +doc+ */
+}
+
+.toggle--search {
+    --toggle--border--radius: var(--buttons--border--radius);
+    --toggle--background--color: var(--color--black);
+}
+
+/* ELEMENTS: Toggles: Card
+   -------------------------------------------------------------------------- */
+
+.toggle--card,
+.article--card .toggle {
+    --toggle--height: var(--card__header--height);
+}
+
+/* ELEMENTS: Toggles: Result
+   -------------------------------------------------------------------------- */
+
+.article--result .toggle {
+    --toggle--border--radius: var(--buttons--border--radius);
+    --toggle--width: calc(var(--sizing--basis) * 10); /* 4rem +doc+ */
+    --toggle--height: calc(var(--sizing--basis) * 10); /* 4rem +doc+ */
+}
+
+.article--result .toggle:hover,
+.article--result .toggle:focus {
+    --toggle--background--color: var(--color--buttons--sub-3);
+}
+
+/* ELEMENTS: Dividers
+   -------------------------------------------------------------------------- */
+
+:root {
+    --dividers--border--color: var(--color--borders);
+        /* ↳ we use the default border-color variable, you can change that here for this element only */
+}
+
+/* ELEMENTS: Logo
+   -------------------------------------------------------------------------- */
+
+:root {
+    --logo--height: calc(var(--sizing--basis) * 9); /* 3.6rem +doc+ */
+}
+
+/* ELEMENTS: Fields
+   -------------------------------------------------------------------------- */
+
+:root {
+    --fields--outline--width: 0;
+    --fields--outline--color: var(--color--white);
+    --fields--border--radius: 0;
+    --fields--border--width: .1rem;
+    --fields--border--color: var(--color--grey--darker);
+    --fields--background--color: var(--color--white);
+    --fields--height: calc(var(--sizing--basis) * 11.25); /* 45rem +doc+ */
+    --fields--padding--v: var(--spacer--xs);
+    --fields--padding--h: var(--spacer--s2);
+    --fields--area: calc(var(--sizing--basis) * 46); /* 18.4rem +doc+ */
+    --fields--font: var(--font);
+    --fields--font--size: 1.7rem;
+    --fields--font--color: var(--color--grey--darkest);
+    --fields--placeholder--color: var(--color--black);
+    --fields--icon--width: calc(var(--sizing--basis) * 8); /* 3.2rem +doc+ */
+}
+
+/* Media query to target only mobile */
+@media all and (max-width:750px) {
+    :root {
+        --fields--height: calc(var(--sizing--basis) * 11); /* 4.4rem +doc+ */
+    }
+
+}
+
+.form input:focus,
+.form select:focus,
+.form textarea:focus,
+.select2-container--focus,
+.dropdown__placeholder:focus {
+    --fields--outline--width: .1rem;
+    --fields--border--width: .2rem;
+    --fields--border--color: var(--color--brand--sub-1);
+}
+
+.dropdown__item:hover,
+.dropdown__item:focus {
+    --fields--font--color: #FFFFFF;
+}
+
+.form select[multiple] option:checked,
+.select2-container--default .select2-results__option[aria-selected=true],
+.dropdown__item--active,
+.dropdown--recordsPerPage .dropdown__item.currentRecordsPerPageLink {
+    --fields--background--color: var(--color--grey--light);
+}
+
+.select2-container--default .select2-results__option--highlighted[aria-selected],
+.dropdown:hover .dropdown__item:hover {
+    --fields--background--color: var(--color--brand--sub-1);
+    --fields--font--color: var(--color--white);
+}
+
+.form input:disabled,
+.form select:disabled,
+.form textarea:disabled,
+.fieldSpec--disabled input,
+.fieldSpec--disabled textarea,
+.fieldSpec--disabled select,
+.select2-container--default .select2-results__option[aria-disabled=true] {
+    --fields--border--color: var(--color--disabled--sub-1);
+    --fields--background--color: var(--color--disabled--sub-1);
+    --fields--font--color: var(--color--disabled);
+    --fields--placeholder--color: var(--color--disabled);
+}
+
+/* ELEMENTS: Buttons
+   -------------------------------------------------------------------------- */
+
+:root {
+    --color--buttons: var(--color--black);
+        --color--buttons--sub-1: #1063E2;
+        --color--buttons--sub-2: #0C4C8F;
+        --color--buttons--sub-3: #EDF5FF;
+        --color--buttons--sub-4: #CEDCEE;
+
+    --buttons--outline--width: 0;
+    --buttons--outline--color: var(--color--white);
+    --buttons--border--radius: 0;
+    --buttons--border--width: .1rem;
+    --buttons--border--color: var(--color--black);
+    --buttons--background--color: var(--color--black);
+    --buttons--width--min: 14rem;
+    --buttons--height: calc(var(--sizing--basis) * 12.25); /* 4.9rem +doc+ */
+    --buttons--padding--v: 1.55rem;
+    --buttons--padding--h: var(--spacer--m);
+    --buttons--font: var(--font);
+    --buttons--font--size: var(--font--size--015);
+    --buttons--font--color: var(--color--white);
+    --buttons--font--weight: normal;
+}
+
+/* Media query to target only mobile */
+@media all and (max-width:750px) {
+    :root {
+        --buttons--height: calc(var(--sizing--basis) * 11); /* 4.4rem +doc+ */
+    }
+
+}
+
+/* ELEMENTS: Buttons: Primary
+   -------------------------------------------------------------------------- */
+
+.button--primary,
+.saveButton,
+.article--alert .submitButton,
+.submitButton,
+.nextButton,
+.formNextButton,
+.redirectUrlButton,
+.gotoButton,
+.ui-dialog-buttonset .ui-button:nth-of-type(1) {
+    --buttons--border--color: var(--color--buttons);
+    --buttons--background--color: var(--color--buttons);
+    --buttons--font--color: var(--color--white);
+    --font--weight--bold: normal;
+    /* templatebuilder ..button--primary --buttons--border--radius - to be deleted on basePortalCloner */
+}
+
+.button--primary:hover,
+.saveButton:hover,
+.article--alert .submitButton:hover,
+.submitButton:hover,
+.nextButton:hover,
+.formNextButton:hover,
+.redirectUrlButton:hover,
+.gotoButton:hover,
+.ui-dialog-buttonset .ui-button:nth-of-type(1):hover {
+    --buttons--border--color: var(--color--buttons);
+    --buttons--background--color: var(--color--buttons);
+    --buttons--font--color: var(--color--white);
+}
+
+.button--primary:focus,
+.button--primary:active,
+.saveButton:focus,
+.saveButton:active,
+.article--alert .submitButton:focus,
+.article--alert .submitButton:active,
+.submitButton:focus,
+.submitButton:active,
+.nextButton:focus,
+.nextButton:active,
+.formNextButton:focus,
+.formNextButton:active,
+.redirectUrlButton:focus,
+.redirectUrlButton:active,
+.gotoButton:focus,
+.gotoButton:active,
+.ui-dialog-buttonset .ui-button:nth-of-type(1):focus,
+.ui-dialog-buttonset .ui-button:nth-of-type(1):active {
+    --buttons--border--color: var(--color--buttons);
+    --buttons--background--color: var(--color--buttons);
+    --buttons--font--color: var(--color--white);
+}
+
+.button--primary.button--disabled,
+.button--primary:disabled,
+.saveButton:disabled,
+.article--alert .submitButton:disabled,
+.nextButton:disabled,
+.formNextButton:disabled,
+.redirectUrlButton:disabled,
+.gotoButton:disabled {
+    --buttons--border--color: var(--color--disabled--sub-1);
+    --buttons--background--color: var(--color--disabled--sub-1);
+    --buttons--font--color: var(--color--disabled);
+}
+
+/* ELEMENTS: Buttons: Secondary
+   -------------------------------------------------------------------------- */
+
+.button.button--secondary,
+.previousButton,
+.formPreviousButton,
+.partialSaveButton,
+.homeButton,
+.ui-dialog-buttonset .ui-button:nth-of-type(2) {
+    --buttons--border--color: var(--color--buttons); /* templatebuilder .button.button--secondary - to be deleted on basePortalCloner */
+    --buttons--background--color: var(--color--white); /* templatebuilder .button.button--secondary - to be deleted on basePortalCloner */
+    --buttons--font--color: var(--color--buttons); /* templatebuilder .button.button--secondary - to be deleted on basePortalCloner */
+    /* templatebuilder .button.button--secondary --buttons--border--radius - to be deleted on basePortalCloner */
+    --font--weight--bold: normal;
+    color: var(--color--black);
+    border-color: var(--color--black);
+    background-color: var(--color--white);
+}
+
+.button.button--secondary:hover,
+.previousButton:hover,
+.formPreviousButton:hover,
+.partialSaveButton:hover,
+.homeButton:hover,
+.ui-dialog-buttonset .ui-button:nth-of-type(2):hover {
+    --buttons--border--color: var(--color--buttons); /* templatebuilder .button.button--secondary - to be deleted on basePortalCloner */
+    --buttons--background--color: var(--color--white); /* templatebuilder .button.button--secondary:hover - to be deleted on basePortalCloner */
+    --buttons--font--color: var(--color--buttons); /* templatebuilder .button.button--secondary:hover - to be deleted on basePortalCloner */
+}
+
+.button.button--secondary:focus,
+.button.button--secondary:active,
+.previousButton:focus,
+.previousButton:active,
+.formPreviousButton:focus,
+.formPreviousButton:active,
+.partialSaveButton:focus,
+.partialSaveButton:active,
+.homeButton:focus,
+.homeButton:active,
+.ui-dialog-buttonset .ui-button:nth-of-type(2):focus,
+.ui-dialog-buttonset .ui-button:nth-of-type(2):active {
+    --buttons--border--color: var(--color--buttons); /* templatebuilder .button.button--secondary - to be deleted on basePortalCloner */
+    --buttons--background--color: var(--color--white); /* templatebuilder .button.button--secondary:focus - to be deleted on basePortalCloner */
+    --buttons--font--color: var(--color--buttons); /* templatebuilder .button.button--secondary:focus - to be deleted on basePortalCloner */
+}
+
+.button.button--secondary.button--disabled,
+.button.button--secondary:disabled,
+.submitButton:disabled,
+.previousButton:disabled,
+.formPreviousButton:disabled,
+.partialSaveButton:disabled,
+.homeButton:disabled {
+    --buttons--border--color: var(--color--disabled--sub-1);
+    --buttons--background--color: var(--color--disabled--sub-1);
+    --buttons--font--color: var(--color--disabled);
+}
+
+/* ELEMENTS: Buttons: Tertiary
+   -------------------------------------------------------------------------- */
+
+.button.button--tertiary,
+.button--cancel,
+.cancelButton,
+.clearButton {
+    --buttons--border--color: var(--color--black);
+    --buttons--width--min: 0;
+    --buttons--background--color: var(--color--white);
+    --buttons--padding--h: 0;
+    --buttons--font--color: var(--color--black);
+    --font--weight--bold: normal;
+}
+
+.button.button--tertiary:hover,
+.button--cancel:hover,
+.cancelButton:hover,
+.clearButton:hover {
+    --buttons--border--color: transparent;
+    --buttons--background--color: transparent;
+    --buttons--font--color: var(--color--buttons);
+}
+
+.button.button--tertiary:focus,
+.button.button--tertiary:active,
+.button--cancel:focus,
+.button--cancel:active,
+.cancelButton:focus,
+.cancelButton:active,
+.clearButton:focus,
+.clearButton:active {
+    --buttons--border--color: transparent;
+    --buttons--background--color: transparent;
+    --buttons--font--color: var(--color--buttons);
+}
+
+.button.button--tertiary.button--disabled,
+.button.button--tertiary:disabled,
+.button--cancel.button--disabled,
+.button--cancel:disabled,
+.cancelButton:disabled,
+.clearButton:disabled {
+    --buttons--border--color: transparent;
+    --buttons--background--color: transparent;
+    --buttons--font--color: var(--color--disabled);
+}
+
+/* ELEMENTS: Buttons: Iconographics
+   -------------------------------------------------------------------------- */
+
+.ui-dialog-titlebar-close {
+    --buttons--border--color: transparent;
+    --buttons--height: 0;
+    --buttons--background--color: transparent;
+    --buttons--padding--v: 0;
+    --buttons--padding--h: 0;
+    --buttons--font--size: 0;
+    --buttons--font--color: var(--color--buttons);
+    --button__icon--width: 2.4rem;
+    --button__icon--height: 2.4rem;
+}
+
+.ui-dialog-titlebar-close:hover {
+    --buttons--border--color: transparent;
+    --buttons--background--color: transparent;
+    --buttons--font--color: var(--color--buttons);
+}
+
+.ui-dialog-titlebar-close:focus,
+.ui-dialog-titlebar-close:active {
+    --buttons--border--color: transparent;
+    --buttons--background--color: transparent;
+    --buttons--font--color: var(--color--buttons);
+}
+
+/* ELEMENTS: Buttons: Registration/application: Customizables
+   -------------------------------------------------------------------------- */
+
+.methodButton--later,
+.methodButton--file,
+.methodButton--paste,
+.methodButton--dropbox {
+        --buttons--border--color: var(--color--buttons);
+    --buttons--width--min: 18.5rem;
+    --buttons--background--color: var(--color--white);
+    --buttons--padding--v: var(--spacer--xxs);
+    --buttons--padding--h: var(--spacer--s);
+    --buttons--font--color: var(--color--buttons);
+}
+
+.methodButton--later:hover,
+.methodButton--file:hover,
+.methodButton--paste:hover,
+.methodButton--dropbox:hover {
+    --buttons--border--color: var(--color--black);
+    --buttons--background--color: var(--color--black);
+    --buttons--font--color: var(--color--white);
+}
+
+.methodButton--later:focus,
+.methodButton--later:active,
+.methodButton--file:focus,
+.methodButton--file:active,
+.methodButton--paste:focus,
+.methodButton--paste:active,
+.methodButton--dropbox:focus,
+.methodButton--dropbox:active {
+    --buttons--border--color: var(--color--white);
+    --buttons--background--color: var(--color--black);
+    --buttons--font--color: var(--color--white);
+}
+
+/* templatebuilder .methodButton icons - to be deleted on basePortalCloner */
+
+/* ELEMENTS: Buttons: Share
+   -------------------------------------------------------------------------- */
+
+.button--share {
+    --buttons--border--color: transparent;
+    --buttons--background--color: transparent;
+    --buttons--font--color: var(--color--buttons);
+}
+
+.button--share:hover {
+    --buttons--border--color: transparent;
+    --buttons--background--color: var(--color--buttons--sub-3);
+    --buttons--font--color: var(--color--buttons);
+}
+
+.button--share:focus,
+.button--share:active {
+    --buttons--border--color: transparent;
+    --buttons--background--color: var(--color--buttons--sub-3);
+    --buttons--font--color: var(--color--buttons);
+}
+
+.share--popUp--open .button--share {
+    --buttons--border--color: var(--color--buttons);
+    --buttons--background--color: var(--color--buttons--sub-4);
+    --buttons--font--color: var(--color--buttons);
+}
+
+/* ELEMENTS: Buttons: In file input
+   -------------------------------------------------------------------------- */
+
+.form input[type="file"]::-webkit-file-upload-button {
+    --buttons--border--color: var(--color--grey--medium);
+    --buttons--background--color: var(--color--white);
+    --buttons--font--color: var(--color--grey--darkest);
+}
+
+.form input[type="file"]::file-selector-button {
+    --buttons--border--color: var(--color--grey--medium);
+    --buttons--background--color: var(--color--white);
+    --buttons--font--color: var(--color--grey--darkest);
+}
+
+.form input[type="file"]::-webkit-file-upload-button:hover {
+    --buttons--border--color: var(--color--clickeable);
+    --buttons--font--color: var(--color--clickeable);
+}
+
+.form input[type="file"]::file-selector-button:hover {
+    --buttons--border--color: var(--color--clickeable);
+    --buttons--font--color: var(--color--clickeable);
+}
+
+.form input[type="file"]:disabled::-webkit-file-upload-button {
+    --buttons--font--color: var(--color--disabled);
+    --buttons--background--color: var(--color--disabled--sub-1);
+}
+
+.form input[type="file"]:disabled::file-selector-button {
+    --buttons--font--color: var(--color--disabled);
+    --buttons--background--color: var(--color--disabled--sub-1);
+}
+
+/* ELEMENTS: Thumbnails
+   -------------------------------------------------------------------------- */
+
+:root {
+    --thumbnail--border--radius: 100%;
+    --thumbnail--border--width: 0;
+    --thumbnail--border--color: transparent;
+    --thumbnail--width: calc(var(--sizing--basis) * 8); /* 3.2rem +doc+ */
+    --thumbnail--height: calc(var(--sizing--basis) * 8); /* 3.2rem +doc+ */
+}
+
+.menu__link {
+    --thumbnail--width: calc(var(--sizing--basis) * 6); /* 2.4rem +doc+ */
+    --thumbnail--height: calc(var(--sizing--basis) * 6); /* 2.4rem +doc+ */
+}
+
+.submenu__link,
+.portalLanguages__link {
+    --thumbnail--width: calc(var(--sizing--basis) * 4); /* 1.6rem +doc+ */
+    --thumbnail--height: calc(var(--sizing--basis) * 4); /* 1.6rem +doc+ */
+}
+
+.banner {
+    --thumbnail--border--width: .2rem;
+    --thumbnail--border--color: var(--color--white);
+    --thumbnail--width: calc(var(--sizing--basis) * 16); /* 6.2rem +doc+ */
+    --thumbnail--height: calc(var(--sizing--basis) * 16); /* 6.2rem +doc+ */
+}
+
+.banner--scrolling {
+    --thumbnail--width: calc(var(--sizing--basis) * 10); /* 4rem +doc+ */
+    --thumbnail--height: calc(var(--sizing--basis) * 10); /* 4rem +doc+ */
+}
+
+/* Media query to target mobile and tablet */
+@media all and (max-width:1024px) {
+    .banner {
+        --thumbnail--width: calc(var(--sizing--basis) * 10); /* 4rem +doc+ */
+        --thumbnail--height: calc(var(--sizing--basis) * 10); /* 4rem +doc+ */
+    }
+
+}
+
+.table--cards {
+    --thumbnail--width: calc(var(--sizing--basis) * 10); /* 4rem +doc+ */
+    --thumbnail--height: calc(var(--sizing--basis) * 10); /* 4rem +doc+ */
+}
+
+.section__header__image {
+    --thumbnail--width: calc(var(--sizing--basis) * 14); /* 5.6rem +doc+ */
+    --thumbnail--height: calc(var(--sizing--basis) * 14); /* 5.6rem +doc+ */
+}
+
+/* COMPONENTS: Menu: Visible
+   -------------------------------------------------------------------------- */
+
+.menu--visible {
+    --menu--dividers--color: var(--dividers--border--color);
+
+    --menu__link--border--radius: 0;
+    --menu__link--border--width: .1rem;
+    --menu__link--border--color: transparent;
+    --menu__link--background--color: transparent;
+    --menu__link--padding--v: var(--spacer--xs);
+    --menu__link--padding--h: var(--spacer--m);
+    --menu__link--font--size: var(--font--size--015);
+    --menu__link--font--color: var(--color--black);
+    --menu__link--font--weight: var(--font--weight--bold);
+
+    --submenu__link--background--color: transparent;
+    --submenu__link--padding--v: var(--spacer--s2);
+    --submenu__link--padding--h: var(--spacer--s2);
+    --submenu__link--font--size: var(--font--size--015);
+    --submenu__link--font--color: var(--color--black);
+    --submenu__link--font--weight: var(--font--weight--bold);
+}
+
+.menu--visible .menu__item:hover .menu__link[aria-haspopup="true"],
+.menu--visible .menu__item:hover .menu__link[aria-haspopup="true"] + .submenu__list,
+.menu--visible .menu__link[aria-haspopup="true"][aria-expanded="true"],
+.menu--visible .menu__link[aria-haspopup="true"][aria-expanded="true"] + .submenu__list {
+    --menu__link--border--radius: var(--border--radius);
+    --menu__link--border--color: var(--boxes--border--color);
+    --menu__link--background--color: var(--color--white); /* templatebuilder .menu--visible - to be deleted on basePortalCloner */
+}
+
+.menu--visible .menu__item[aria-current="page"] .menu__link {
+    --menu__link--font--color: initial;
+    cursor: pointer;
+}
+
+.menu--visible .submenu__item[aria-current="page"] .submenu__link,
+.menu--visible .portalLanguages__item--selected .portalLanguages__link {
+    --submenu__link--font--color: initial;
+}
+
+.menu--visible .menu__item:not([aria-current="page"]):hover .menu__link {
+    --menu__link--font--color: initial;
+}
+
+.menu--visible .submenu__item:not([aria-current="page"]):hover .submenu__link,
+.menu--visible .portalLanguages__item:not(.portalLanguages__item--selected):hover .portalLanguages__link {
+    --submenu__link--background--color: var(--color--brand--sub-1); /* templatebuilder .menu--visible - to be deleted on basePortalCloner */
+    --submenu__link--font--color: var(--color--white); /* templatebuilder .menu--visible - to be deleted on basePortalCloner */
+}
+
+/* COMPONENTS: Menu: Toggleable
+   -------------------------------------------------------------------------- */
+
+html[menu-type="toggleable"] {
+    --menu--width: 50%;
+}
+
+.menu--toggleable {
+    --menu--dividers--color: var(--dividers--border--color);
+    --menu__overlay--background--color: var(--color--overlay--dark);
+
+    --menu__link--border--radius: 0;
+    --menu__link--border--width: 0;
+    --menu__link--border--color: transparent;
+
+    --menu__link--background--color: transparent;
+    --menu__link--padding--v: var(--spacer--l);
+    --menu__link--padding--h: 0;
+    --menu__link--font--size: var(--font--size);
+    --menu__link--font--color: var(--color--clickeable);
+    --menu__link--font--weight: var(--font--weight--bold);
+
+    --submenu__link--background--color: transparent;
+    --submenu__link--padding--v: var(--spacer--s);
+    --submenu__link--padding--h: var(--spacer--s);
+    --submenu__link--font--size: 1.4rem;
+    --submenu__link--font--color: var(--color--clickeable);
+    --submenu__link--font--weight: 350;
+}
+
+.menu--toggleable .menu__item[aria-current="page"] .menu__link {
+    --menu__link--font--color: var(--color--font);
+}
+
+.menu--toggleable .submenu__item[aria-current="page"] .submenu__link,
+.menu--toggleable .portalLanguages__item--selected .portalLanguages__link {
+    --submenu__link--font--color: var(--color--font);
+}
+
+.menu--toggleable .menu__item:not([aria-current="page"]):hover .menu__link {
+    --menu__link--font--color: var(--color--font);
+}
+
+.menu--toggleable .submenu__item:not([aria-current="page"]):hover .submenu__link,
+.menu--toggleable .portalLanguages__item:not(.portalLanguages__item--selected):hover .portalLanguages__link {
+    --submenu__link--background--color: var(--color--clickeable); /* templatebuilder .menu--visible - to be deleted on basePortalCloner */
+    --submenu__link--font--color: var(--color--white); /* templatebuilder .menu--visible - to be deleted on basePortalCloner */
+}
+
+@media all and (max-width:750px) {
+    html[menu-type="toggleable"] {
+        --menu--width: 100%;
+    }
+}
+/* COMPONENTS: Tables
+   --------------------------------------------------------------------------
+   "default tables" be anything that needs to look like one - ej: actual
+   tables, datasets in wizards (with a modifier).
+   --------------------------------------------------------------------------
+   The point is to normalize around and centralize here common properties for
+   this kind of overall appearance. Any modification you make here impacts
+   through all these components at once.
+   -------------------------------------------------------------------------- */
+
+:root {
+    --table--border--radius: var(--border--radius);
+        /* ↳ we use the default border-radius variable, you can change that here for this component only */
+    --table--border--color: var(--color--borders);
+        /* ↳ we use the default border-color variable, you can change that here for this component only */
+    --table--background--color: var(--color--white);
+
+    --table__th--height: 5rem;
+    --table__th--background--color: transparent;
+    --table__th--padding: .5rem var(--spacer--s2);
+        /* ↳ I recommend leaving this alone and just play with the height defined above - if that tends to be enough, we may delete this one */
+    --table__th--font--size: var(--font--size--01);
+
+    --table__td--height: 100%;
+    --table__td--padding: var(--spacer--m) var(--spacer--s2);
+        /* ↳ I recommend leaving this alone and just play with the height defined above - if that tends to be enough, we may delete this one */
+    --table__td--font--size: 1.4rem;
+
+    --table--fixed-column--width: calc(var(--sizing--basis) * 50); /* 20rem +doc+ */
+        /* ↳ This is the width of the fixed td when the table is set to show the horizontal scroll and keep the first or last table cell fixed */
+}
+
+/* Media query to target mobile and tablet */
+@media all and (max-width:1024px) {
+    :root {
+        --table__th--height: 4.6rem;
+        --table__td--height: 4.6rem;
+    }
+
+}
+
+/* COMPONENTS: Cards
+   --------------------------------------------------------------------------
+   "card" be anything card-like, ej: tables as cards, articles as cards.
+   --------------------------------------------------------------------------
+   The point is to normalize around and centralize here common properties for
+   this kind of overall appearance. Any modification you make here impacts
+   through all these modules at once.
+   -------------------------------------------------------------------------- */
+
+:root {
+    --card--border--radius: 0%;
+    --card--border--width: .1rem;
+    --card--border--color: var(--color--borders);
+    --card--background--color: var(--color--white);
+    --card--padding--outers: var(--spacer--s2);
+    --card--padding--inners: var(--spacer--s2);
+    --card__header--height: calc(var(--sizing--basis) * 19); /* 7.6rem +doc+ */
+}
+
+@media all and (max-width:750px) {
+    :root {
+        --card__header--height: calc(var(--sizing--basis) * 13.75); /* 7.6rem +doc+ */
+    }
+
+}
+
+/* COMPONENTS: Result
+   --------------------------------------------------------------------------
+   "result" be anything result-like, ej: article as results.
+   --------------------------------------------------------------------------
+   The point is to normalize around and centralize here common properties for
+   this kind of overall appearance. Any modification you make here impacts
+   through all these modules at once.
+   -------------------------------------------------------------------------- */
+
+:root {
+    --result--border--radius: var(--border--radius);
+    --result--border--width: 0;
+    --result--border--color: var(--color--borders);
+    --result--background--color: var(--color--white);
+    --result--padding--outers--v: var(--spacer--xl);
+    --result--padding--outers--h: var(--spacer--xl);
+    --result--padding--inners--v: var(--spacer--m);
+    --result--padding--inners--h: var(--spacer--xl);
+}
+
+/* COMPONENTS: Form item structures: fieldSpec
+   --------------------------------------------------------------------------
+   Wizards and template forms as well.
+   --------------------------------------------------------------------------
+   The point is to normalize around and centralize here common properties for
+   this kind of overall appearance. Any modification you make here impacts
+   through all these components at once.
+   -------------------------------------------------------------------------- */
+
+:root {
+    --fieldSpec--padding--outers: var(--spacer--m);
+        /* ↳ padding for spaces facing the outer borders of the fieldSpec */
+    --fieldSpec--padding--inners: var(--spacer--xs);
+        /* ↳ slightly small padding for spaces inside the fieldSpec */
+}
+
+/* COMPONENTS: Form item types: No modifier class: Scheduling
+   --------------------------------------------------------------------------
+   The point is to normalize around and centralize here common properties for
+   this kind of overall appearance. Any modification you make here impacts
+   through all these components at once.
+   -------------------------------------------------------------------------- */
+
+:root {
+    --schedulerWidget__calendar__day--background--color: transparent;
+    --schedulerWidget__calendar__day--font--color: inherit;
+    --schedulerWidget__slot__item--background--color: transparent;
+    --schedulerWidget__slot__item--font--color: inherit;
+}
+
+.datepicker-skin-scheduling .ui-datepicker .ui-datepicker-calendar td.ui-datepicker-today span,
+.datepicker-skin-scheduling .ui-datepicker .ui-datepicker-calendar td.ui-datepicker-today span.ui-state-hover,
+.datepicker-skin-scheduling .ui-datepicker .ui-datepicker-calendar td.ui-datepicker-today a,
+.datepicker-skin-scheduling .ui-datepicker .ui-datepicker-calendar td.ui-datepicker-today a.ui-state-hover {
+    --schedulerWidget__calendar__day--font--color: var(--color--black);
+}
+
+.datepicker-skin-scheduling .ui-datepicker .ui-datepicker-calendar td.selectable-day a {
+    --schedulerWidget__calendar__day--font--color: var(--color--clickeable);
+}
+
+.datepicker-skin-scheduling .ui-datepicker .ui-datepicker-calendar td.ui-datepicker-current-day a,
+.datepicker-skin-scheduling .ui-datepicker .ui-datepicker-calendar td.ui-datepicker-current-day a.ui-state-hover,
+.datepicker-skin-scheduling .ui-datepicker .ui-datepicker-calendar td.ui-datepicker-current-day a.ui-state-active {
+    --schedulerWidget__calendar__day--background--color: var(--color--clickeable);
+    --schedulerWidget__calendar__day--font--color: var(--color--white);
+}
+
+.schedulerWidget .results .resultsList .resultItem:hover,
+.schedulerWidget .results .resultsList .resultItem.selected {
+    --schedulerWidget__slot__item--background--color: var(--color--clickeable);
+    --schedulerWidget__slot__item--font--color: var(--color--white);
+}
+
+/* COMPONENTS: Boxes
+   --------------------------------------------------------------------------
+   "boxes" be anything boxed-like, ej: cards, dashlets, results lists in mobile.
+   --------------------------------------------------------------------------
+   The point is to normalize around and centralize here common properties for
+   this kind of overall appearance. Any modification you make here impacts
+   through all these modules at once.
+   -------------------------------------------------------------------------- */
+
+:root {
+    --boxes--border--radius: var(--border--radius);
+        /* ↳ we use the default border-radius variable, you can change that here for this component only */
+    --boxes--border--color: var(--color--borders);
+        /* ↳ we use the default border-color variable, you can change that here for this component only */
+    --boxes--background--color: var(--color--white);
+
+    --boxes__heading--height: calc(var(--sizing--basis) * 19); /* 7.6rem +doc+ */
+
+    --boxes--padding--outers: var(--spacer--m);
+        /* ↳ padding for spaces facing the outer borders of the box */
+    --boxes--padding--inners: var(--spacer--s2);
+        /* ↳ slightly small padding for spaces inside the box */
+}
+
+/* COMPONENTS: Modal
+   -------------------------------------------------------------------------- */
+
+:root {
+    --modal__overlay--background--color: var(--color--overlay--dark);
+
+    --modal--shadow: var(--color--shadow);
+    --modal--border--radius: var(--border--radius);
+    --modal--border--width: 0;
+    --modal--border--color: var(--color--borders);
+    --modal--background--color: var(--color--white);
+    --modal--padding--outers--v: var(--spacer--xxl);
+    --modal--padding--outers--h: var(--spacer--l);
+    --modal--padding--inners--v: var(--spacer--m);
+    --modal--padding--inners--h: var(--spacer--m);
+}
+
+/* MODULES: Header
+   -------------------------------------------------------------------------- */
+
+:root {
+    --header--height: calc(var(--sizing--basis) * 15); /* 6rem +doc+ */
+    --header--padding--top: var(--spacer--s);
+    --header--padding--bottom: var(--spacer--s);
+        /* ↳ I recommend leaving these alone and just play with the height defined above - if that tends to be enough, we may delete this one */
+}
+
+/* Media query to target only mobile */
+@media all and (max-width:750px) {
+    :root {
+        --header--padding--top: var(--spacer--xs);
+        --header--padding--bottom: var(--spacer--xs);
+        /* ↳ I recommend leaving these alone and just play with the height defined above - if that tends to be enough, we may delete this one */
+    }
+
+}
+
+/* MODULES: Banner
+   -------------------------------------------------------------------------- */
+
+:root {
+    --banner--height: calc(var(--sizing--basis) * 30); /* 12rem +doc+ */
+
+    --banner--padding--top: var(--spacer--m);
+    --banner--padding--bottom: var(--spacer--m);
+        /* ↳ I recommend leaving these alone and just play with the height defined above - if that tends to be enough, we may delete this one */
+
+    --banner--background--image--position: center bottom;
+    --banner--background--image--sizing: cover;
+}
+
+/* Media query to target only tablet */
+@media all and (min-width:751px) and (max-width:1024px) {
+    :root {
+        --banner--height: calc(var(--sizing--basis) * 24); /* 9.6rem +doc+ */
+        --banner--background--image--position: right bottom;
+    }
+
+}
+
+/* Media query to target only mobile */
+@media all and (max-width:750px) {
+    :root {
+        --banner--height: 7rem;
+        --banner--background--image--position: right bottom;
+    }
+
+}
+
+/* MODULES: Main
+   -------------------------------------------------------------------------- */
+
+:root {
+    --main--padding--top: 0;
+    --main--padding--bottom: var(--spacer--xl);
+}
+
+/* Media query to target only mobile */
+@media all and (max-width:750px) {
+    :root {
+        --main--padding--top: 0;
+        --main--padding--bottom: var(--spacer--l);
+    }
+
+}
+
+/* MODULES: Footer
+   -------------------------------------------------------------------------- */
+
+:root {
+    --footer--padding--top: var(--spacer--m);
+    --footer--padding--bottom: var(--spacer--m);
+}
+
+/* Media query to target only mobile */
+@media all and (max-width:750px) {
+    :root {
+        --footer--padding--top: var(--spacer--l);
+        --footer--padding--bottom: var(--spacer--l);
+    }
+
+}
+
+/* PAGETYPES: Blocking login
+   -------------------------------------------------------------------------- */
+
+:root {
+    --login__body--background--color: transparent;
+    --login__body--background--image--position: right bottom;
+    --login__body--background--image--sizing: cover;
+
+    --login__box--border--radius: calc(var(--boxes--border--radius) * 2);
+        /* ↳ this is a "box" but instead of using the border-radius defined for boxes above, we define a custom value here for this case only */
+    --login__box--background--color: var(--color--white);
+
+    --login__box--width: calc(var(--sizing--basis) * 83); /* 33.2rem +doc+ */
+    --login__box--padding--outers: var(--spacer--l);
+        /* ↳ padding for spaces facing the outer borders of the box */
+
+    --login__box__footer--background--color: var(--color--grey--lighter);
+}
+
+/* Media query to target only tablet */
+@media all and (min-width:751px) and (max-width:1024px) {
+    :root {
+        --login__body--background--image--position: right bottom;
+    }
+
+}
+
+/* Media query to target only mobile */
+@media all and (max-width:750px) {
+    :root {
+        --login__body--background--image--position: right bottom;
+    }
+
+}

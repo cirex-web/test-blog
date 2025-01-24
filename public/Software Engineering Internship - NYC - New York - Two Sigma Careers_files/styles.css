@@ -1,0 +1,111 @@
+/* ==========================================================================
+   SOCIAL BUTTONS
+   --------------------------------------------------------------------------
+   * README
+
+   * SOCIAL SHARE: BUTTONS
+   * SOCIAL SHARE: BUTTONS: CUSTOMIZABLES
+   * SOCIAL SHARE: BUTTONS: BRANDED
+   ========================================================================== */
+
+/* README
+   ========================================================================== */
+
+/*!
+ * Styles on this stylesheet are the social button styles, used in the
+ * social share widget.
+
+ * These styles have been removed from stylesheet #15 and now are coming to you
+ * straight from Portals.
+
+ * These styles follow a Studio mockup: https://zpl.io/anLDKKr.
+ */
+
+
+/* SOCIAL SHARE: BUTTONS
+   ========================================================================== */
+
+/*!
+ * With this custom class we style the base for all buttons in the social share widget.
+ */
+
+/* HTML Snippet
+   --------------------------------------------------------------------------
+
+<ul class="list list--social-share clearfix">
+    {% set shareMethods = getJobShareMethods(buildJobDetailUrl(PORTAL_URL, job), job.jobname|e) %}
+
+    {% for shareMethod in shareMethods %}
+        <li class="list__item list__item--{{ shareMethod.getName() }}">
+            {{ shareMethod.getHtml()|raw }}
+
+            {# <a id="shareButton--X" class="shareButton shareButton--X tpt_socialShareIcon tpt_socialSharePopupTrigger" aria-describedby="Share JOBNAME with X" role="button" tabindex="0" href="X">X</a> #}
+        </li>
+    {% endfor %}
+</ul>
+
+   -------------------------------------------------------------------------- */
+
+.shareButton {
+    display: block;
+    margin: 0 auto;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    border-radius: none;
+    max-width: none;
+    width: 28px;
+    height: 28px;
+    background-color: none;
+    background-position: center center;
+    background-size: auto 100%;
+    filter: none;
+    padding: 0;
+    text-indent:-9999px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+/* SOCIAL LOGISHARE: BUTTONS: CUSTOMIZABLES
+   ========================================================================== */
+
+/*!
+ * With these modifiers we style the customizable buttons in the social login widget.
+ * These buttons are customizable to an extent, and we CAN alter or override some of their properties -if requested- in stylesheet #16.
+ */
+
+.shareButton--email {
+    background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8' standalone='no'%3F%3E%3C!-- Generator: Gravit.io --%3E%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' style='isolation:isolate' viewBox='0 0 28 28' width='28pt' height='28pt'%3E%3Cdefs%3E%3CclipPath id='_clipPath_ob23F4wq9N4vn6Hkb3mQzSzyxobo7m9T'%3E%3Crect width='28' height='28'/%3E%3C/clipPath%3E%3C/defs%3E%3Cg clip-path='url(%23_clipPath_ob23F4wq9N4vn6Hkb3mQzSzyxobo7m9T)'%3E%3Cpath d=' M 2 0 L 26 0 C 27.105 0 28 0.895 28 2 L 28 26 C 28 27.105 27.105 28 26 28 L 2 28 C 0.895 28 0 27.105 0 26 L 0 2 C 0 0.895 0.895 0 2 0 Z M 3.686 7 L 14.157 13.731 L 24.358 7 L 3.686 7 L 3.686 7 Z M 14.151 15.285 L 3.5 8.438 L 3.5 20.998 L 24.5 21 L 24.5 8.456 L 14.151 15.285 L 14.151 15.285 Z ' fill='rgb(0,132,213)'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* SOCIAL SHARE: BUTTONS: BRANDED
+   ========================================================================== */
+
+/*!
+ * With these modifiers we style the branded buttons in the social login widget
+ * These buttons follow brand guidelines and we should NOT alter or override them in any way.
+ */
+
+.shareButton--whatsapp {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB0AAAAcCAMAAACqEUSYAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAEjUExURUdwTFPwcDviWE/wa0PkXzneVkrfYyXRRCbJQWH+fVDxbVzxdizOSzPcUUHmXkvJSznWVGD3el/7e1r2d2D8fCfNRSrWSCjLQyXRRF/8fSjTRSnWSCnSR133eCnRRi7XS2D9fSnRSlr4eFz3eFz0dVr4d136eifSRUrtZ2H/fTLaUE7wa1r5d1Hyblf3dC/XTUPnYCvXSTXdU+v97jziWinURz/lXUbqY1b2c/T+9sz41FPzbzngVsT3zv3//dv64NP42SLRQbj1w2rlgInpmnPziof2mpzwq+D75WTpe6D5sb36yKfztJPso1/xeqr3t1Lha3PmiLH3vWXyfk3laHrtjzrZV1zgc0jaYVfpcMj10Gzqg7PwvlrxdX32k0feYmf4gYbFoHwAAAAmdFJOUwA5np8eOgz1Sma6FRK5ugMpVMKO8l7QP+bbt+SocYOV+G/qQFmstRjtkQAAAhVJREFUKM9lk2dXo0AUQHHXnqyJva66LSAEGJgBZAKBUEMqaSbG+v9/xc4M+kG9B3jlvscHzsBxHFcprexufWR3ZZ0rKG3tXd985mBvl/nS/sFN7Ss3pz+Jrvw9favrilKv1cijXtR7f+hqvUCpPXfG3e4weVVYXftNlqv/yI6i3NYTbDebNrnbnddb2lL2S9zK9i1l0IGwm0yUWtzxbDdmve+rxDYaDfmpA/FzQ5ZJKk+G0I1Js7AyIWnjWJJkhkRGxwMyyawkSZOu9yzFKRmgCIOgnZBYWEFIvKE8cZvBQChIvPGTQO3atmBJPS+xZn7Tm1lMWoOuO7EEancscD/GMXjAzW4GLIYw9GNg0TfvAPM+cDNz2oPDexMAcgGQ+jMAvtFdEzGLMhf2AQJTE5nUmuabnfbwyEHoAcPeQ+r3MjQd48xBzCIH9b0IOY4TLumntFOULYO8sD8cRw9xkOsk5qlnN3HoRO0+0h1mdV1/6fkhCboovoRhrmfYnYu6zqwoinkQ5JpIUTVNDJfeiAyKhVW1ED+OZtH8TlXJduS3I5KphVU1NYI2tG3oplH/0bPxSNSIVa9WueqFZtz1fTcNR48ehLC9jBaGoVGuylz5csNQFwu1xfPGXT6fL1TeKDj/tc5VNo80vkUcpdV6z3heO1sjJ7Z8eW7wX9GODtmBLh+enWx85uRi8/1vKFePNz9yXGXuP0FBjRLUd/YEAAAAAElFTkSuQmCC');
+}
+
+.shareButton--facebook {
+    background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8' standalone='no'%3F%3E%3C!-- Generator: Gravit.io --%3E%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' style='isolation:isolate' viewBox='0 0 28 28' width='28pt' height='28pt'%3E%3Cdefs%3E%3CclipPath id='_clipPath_6kFah9hNieR21eKkifrXvj44gSh8SnwS'%3E%3Crect width='28' height='28'/%3E%3C/clipPath%3E%3C/defs%3E%3Cg clip-path='url(%23_clipPath_6kFah9hNieR21eKkifrXvj44gSh8SnwS)'%3E%3Cg%3E%3Cpath d=' M 28 14 C 28 6.268 21.732 0 14 0 C 6.268 0 0 6.268 0 14 C 0 20.988 5.12 26.78 11.813 27.83 L 11.813 18.047 L 8.258 18.047 L 8.258 14 L 11.813 14 L 11.813 10.916 C 11.813 7.406 13.903 5.469 17.101 5.469 C 18.632 5.469 20.234 5.742 20.234 5.742 L 20.234 9.188 L 18.47 9.188 C 16.73 9.188 16.188 10.267 16.188 11.374 L 16.188 14 L 20.071 14 L 19.451 18.047 L 16.189 18.047 L 16.189 27.83 C 22.88 26.78 28 20.988 28 14 Z ' fill-rule='evenodd' fill='rgb(24,119,242)'/%3E%3Cpath d=' M 19.45 18.047 L 20.07 14 L 16.187 14 L 16.187 11.374 C 16.187 10.267 16.73 9.187 18.469 9.187 L 20.234 9.187 L 20.234 5.742 C 20.234 5.742 18.632 5.469 17.101 5.469 C 13.903 5.469 11.813 7.407 11.813 10.916 L 11.813 14 L 8.258 14 L 8.258 18.047 L 11.813 18.047 L 11.813 27.83 C 13.262 28.057 14.738 28.057 16.187 27.83 L 16.187 18.047 L 19.45 18.047 Z ' fill-rule='evenodd' fill='rgb(255,255,255)'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+.shareButton--linkedin {
+    width: 37px;
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACUAAAAcCAYAAAGR7EbwAAAAAXNSR0IArs4c6QAAAvVJREFUWAnFV71rVEEQn3ccfjXmtAuCZ8BWlBQKFokQBI1NCkvR6lqvSzov3dlFy1QR/4AouVio4AXTHsTCWAjJFXJioYlp/EA49ze7s+6+jzXvvYgD73Zmdua382Z3Zt9F1FweocOHdkjo/nRU8RRmoiIG7pimbEQ0uzq0VgoPfKVeO2p1wkRDRVaIIrasRnPPRGdHxtxtXaXzD15Tf+ebnWDGrAG+ip/jR6psNGxfh8gUR02EHjdQXg08/utoMP0b0Rq1pychMJq7nLZQv0OaEJ6N5l++FzljVNnjvJiRBeTJyep+gtepyFgDarwdZb8dZnViAymAUYiiyhlqX+u7JjZ2pAtPa+qsO5/Nx4BgyNvterRMegG8tvWFNj7u0d3LdTaZedyjJ28/ueYebyPztEaYGDtBC+vbVJt/wZrlW+NpZlaXiMzOGCZxiuMGZoeUejEYWdIvoeGtNlq1m3OrXfdcJsyzFE6diUkxsB8/a7QwsysgGCuFInI7l0HjXKHb4AigZRQlBrozfor90VKKEnvKwVzqfSiKo7sMvO+pktmevcJAUkYQhO+bOTZI+QmeJ4AInVZ5XLp5TsTEGAR6o2oPXfXppq652yaXCRSlCAI1V96xT3NlM83X0wWBuluf2ThQe6PKAOUyGgTylkwXBkrdU8+gLBDgAfSXXg2LLNKFi1e7oZ5OsaOM604TXm0RbLHq1yD5f537NuRcjXcSNAOpY5RfYPdDuOlzzv2ebqC1Xspx46GEhcDju0B6hOj/9eidTGTm6/dfdk3wZZqVBcrJeJnCVo20nueEIMKW12vHrJ8UvlXkZLyg4Os2Scju12N87pHKbKj3XXi4ThuDPcDkIm/7cnkq41BAwOo2LuWFZPtEpvKgxL/QJsdO0qvGRQtR9BYulan4J2PZsyRvUyooASk4yi3nuvOtV2r7XLQCPO4mXCsIBNRRD8v/MygEgYAQiBDkTvifk5ge5Jjy+R2HrxA+rf/c1PH5g5OxBtbaB/0G4mPycFl+nbMAAAAASUVORK5CYII=');
+}
+
+.shareButton--twitter {
+    background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='28px' height='28px' viewBox='0 0 28 28' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3EButtons/Share/TW%3C/title%3E%3Cg id='Showroom' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cg id='Styles&amp;Behaviours' transform='translate(-178.500000, -3394.000000)' fill-rule='nonzero'%3E%3Cg id='Buttons/Share/TW' transform='translate(178.500000, 3394.000000)'%3E%3Cg fill='%23000000' id='Combined-Shape'%3E%3Crect x='0' y='0' width='28' height='28'%3E%3C/rect%3E%3C/g%3E%3Cg id='logo' transform='translate(4.000000, 3.500000)' fill='%23FFFFFF'%3E%3Cpath d='M11.9027167,8.89206683 L19.3481667,0 L17.5838333,0 L11.11895,7.72085667 L5.95546667,0 L0,0 L7.8082,11.6753027 L0,21 L1.76443333,21 L8.59151667,12.8465129 L14.0445333,21 L20,21 L11.9022833,8.89206683 L11.9027167,8.89206683 Z M9.48608333,11.7781648 L8.69495,10.6155679 L2.40018333,1.36466352 L5.11025,1.36466352 L10.1902,8.83043861 L10.9813333,9.99303554 L17.5846667,19.6973996 L14.8746,19.6973996 L9.48608333,11.77861 L9.48608333,11.7781648 Z' id='Shape'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+.shareButton--wechat {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAYAAAByDd+UAAAAAXNSR0IArs4c6QAABClJREFUSA3dVl1oXEUU/ubevd3ddDelaWj9adI8aBIKGrVQQcQHSYVGVOiDjy2CFAqlxgoqvvRJ0AdRxBd9UWJssVFBEJO0q6KgghprW2lritakISHbzSbbpO7fvTM9Z/bO3rs/rU0ee5Z7Z+b8fN+ZM3NnFrjdRTRM8GxbB6zyISj1LITobLDfikKpaYo9Dum8i/uyl8MhtYRnNuyAo4Yg1Ha4Ybc19CMUo8Q5It6H3txvBiEgPB3fChFJISZ6UFTGXtdKRvEfNnE4PxYPGiVKtqK6COk+jr78DDtwHr5EBmnUg0ITMsXT9ZCw27DR3ogWKw5Jv4IsYNFbwoqXJbtN3CE4RmWsCO6FF3mRRi+xKpjhmcQUDRvXTJXQFtmCPa1PYXfyCexs2YGtzt1UcQ+zpVlM5E9hbCWFL3JfIuPOE8Q6xq0VhSn0LXexMiD8I9lkai76k/14/Y4jmqgWpXb0a/53vDZ3BKnlb8hQN1NB5ehbphKECU/VEaoydm8YwFDnB2iPbKpFv8Eo4y5g7/R+jOa+JmSn1uvBZT25YLXNXuBWlqhs2/DOXW/eMhmjc2Icw7GMUd1fodoFhLwB9aNgKQfPb9qH7tg9jIPRzAns+nkXDp7X66515sU6trEPC8dwLGNAEpPB9QMCQs6CHynRbm/G08kB3wX427uEVDGFsVKqqjMd1rGNfYw8k3xSYzBWdZa+MVhdzoRFKbSKJHrjPZUxvR9a/wAOdBxAV0t3VWc6+zc/h38Tk9rH6Hrj3RojLefCu0SbQ4Q8PRIitJRA1I5WxvR+JPGwfqqKUOflOwdDo0o3ZsdgKyoel1T4uL5XY0mJrOAWMV+gb2qNcqWUQdErUvK0MZkvxBkQmsUlJw74YfHHNdIB3y18j/nilQqhwfXRAkKTCZUiX17E0fnj8KS3alJPefgkPaIxwGU1uA2EJhNu6XgaXRzH8MyxVRMOXz6G0eyYxqh+EozpSzDDMKG0UBZlDF58FSfT3xrf/20/nPqYYl7RsSCMZoTBLg0tbAXZwpLIIuflqkRl6cKxghA2lGQZs/k5vDH5FobTR3HNWaEy1vqETuzQKdtASBcOlfax9kc14Kczn+HPq+fQ13o/uuKdOomp/DR+WZqgU+YkFkQalA3piaweS4G2bEWCVCT4r0CHMXCr6Bs6OHEYF/6bxFm6DXSmc1R7j+tPYhOBTZeAQ1cS34V1G0T78JEt8JPu0ysgVGIEEXU4/NdCKomRzDB50bkYjZmYxrYZEXuZy0/hfRMUbBrHfZvu1L+wzv9YjUc0QbOgU8eANmuNb33LN5TC5/DWf2VMJofKeJyuc9seIq/tRF4hMZ6raRmVpyJxgs64vei/Vj22agkZdJz+JqryCxByD6TYRmUJqsD2mwmjKZ3qP7DER3Cd9zCQvXqzkNvPdh25EosJ8GWZIAAAAABJRU5ErkJggg==');
+}
+
+.shareButton--xing {
+    background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8' standalone='no'%3F%3E%3C!-- Generator: Gravit.io --%3E%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' style='isolation:isolate' viewBox='0 0 28 28' width='28pt' height='28pt'%3E%3Cdefs%3E%3CclipPath id='_clipPath_pN2uDgRrRnTI6OxcIGTZ8ppgKIoGkYfZ'%3E%3Crect width='28' height='28'/%3E%3C/clipPath%3E%3C/defs%3E%3Cg clip-path='url(%23_clipPath_pN2uDgRrRnTI6OxcIGTZ8ppgKIoGkYfZ)'%3E%3Cg%3E%3Cpath d='M 0 0 L 28 0 C 28 0 28 0 28 0 L 28 28 C 28 28 28 28 28 28 L 0 28 C 0 28 0 28 0 28 L 0 0 C 0 0 0 0 0 0 Z' style='stroke:none;fill:%23026567;stroke-miterlimit:10;'/%3E%3Cpath d=' M 18.745 4.164 L 22.914 4.164 L 16.293 16.501 L 20.707 24.397 L 16.538 24.397 L 12.123 16.255 L 18.745 4.164 Z M 6.575 8.211 L 10.644 8.211 L 12.798 12.305 L 9.447 18.327 L 5.379 18.327 L 8.729 12.546 L 6.575 8.211 Z ' fill-rule='evenodd' fill='rgb(255,255,255)'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
